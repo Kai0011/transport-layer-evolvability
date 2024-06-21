@@ -15,9 +15,15 @@ def handle_packet(packet):
         send(syn_ack_packet)
         print(f"Sent SYN-ACK from {packet[IP].dst} to {packet[IP].src}")
 
-def main():
+def main(ip_filter):
     print("Listening for incoming TCP SYN packets...")
-    sniff(filter="tcp and (tcp[tcpflags] & (tcp-syn) != 0)", prn=handle_packet)
+    sniff(filter=ip_filter, prn=handle_packet)
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="filter IP address")
+    parser.add_argument('--ip', type=str, default='128.105.144.164')
+    args = parser.parse_args()
+
+    ip = args.ip
+    ip_filter = "tcp and src host " + ip
+    main(ip_filter)
