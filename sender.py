@@ -1,6 +1,28 @@
 import argparse
 from scapy.all import *
 
+def create_tcp_connection(dst_ip, dst_port):
+    ip = IP(dst=dst_ip)
+    
+    syn = TCP(sport=RandShort(), dport=dst_port, flags="S")
+    
+    syn_packet = ip/syn
+    
+    synack_response = sr1(syn_packet)
+    
+    if (synack_response[TCP].flags == "SA"):
+        print("SYN-ACK received")
+        ack = TCP(dport=dst_port, flags="A", seq=synack_response[TCP].ack, ack=synack_response[TCP].seq+1)
+        send(ip/ack)
+        print("ACK sent, TCP connection established.")
+        
+        
+        # send data
+        data_packet = ip/TCP(dport=dst_port, flags="PA", seq=synack_response[TCP].ack, ack=synack_response[TCP].seq+1) / "Hello, I'm sender"
+        
+        send(data_packet)
+        print("Data sent.")
+
 def send_syn_packet(dst_ip, dst_port):
     # create IP layer
     ip = IP(dst=dst_ip)
@@ -60,6 +82,6 @@ destination_port = args.port
     
 
 # send_custom_tcp_option(destination_ip, destination_port)
-send_syn_packet(destination_ip, destination_port)
+create_tcp_connection(destination_ip, destination_port)
 
 print("TCP packet with custom option sent.")
