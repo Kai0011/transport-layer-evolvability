@@ -4,7 +4,7 @@ from scapy.all import *
 def create_tcp_connection(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
     
-    syn = TCP(sport=RandShort(), dport=dst_port, flags="S")
+    syn = TCP(sport=RandShort(), dport=dst_port, flags="S", options=[(253, b'ABC')])
     
     syn_packet = ip/syn
     
