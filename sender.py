@@ -10,6 +10,8 @@ def create_tcp_connection(dst_ip, dst_port):
     
     synack_response = sr1(syn_packet)
     
+    print(synack_response[TCP].flags)
+    
     if (synack_response[TCP].flags == "SA"):
         print("SYN-ACK received")
         ack = TCP(dport=dst_port, flags="A", seq=synack_response[TCP].ack, ack=synack_response[TCP].seq+1)
@@ -84,4 +86,4 @@ destination_port = args.port
 # send_custom_tcp_option(destination_ip, destination_port)
 create_tcp_connection(destination_ip, destination_port)
 
-print("TCP packet with custom option sent.")
+# print("TCP packet with custom option sent.")
