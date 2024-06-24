@@ -83,7 +83,7 @@ destination_port = args.port
 #     print(f"Sent TCP packet with MSS={mss}")
     
 
-# send_custom_tcp_option(destination_ip, destination_port)
-create_tcp_connection(destination_ip, destination_port)
+send_syn_packet(destination_ip, destination_port)
+# create_tcp_connection(destination_ip, destination_port)
 
 # print("TCP packet with custom option sent.")
