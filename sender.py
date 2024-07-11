@@ -4,7 +4,7 @@ from scapy.all import *
 def create_tcp_connection(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
     
-    syn = TCP(sport=RandShort(), dport=dst_port, flags="S", options=[(253, b'ABC')])
+    syn = TCP(sport=RandShort(), dport=dst_port, flags="S", seq=252001, options=[('MSS', 512), (173, b'ABC')])
     
     syn_packet = ip/syn
     
@@ -20,10 +20,10 @@ def create_tcp_connection(dst_ip, dst_port):
         
         
         # send data
-        data_packet = ip/TCP(dport=dst_port, flags="PA", seq=synack_response[TCP].ack, ack=synack_response[TCP].seq+1) / "Hello, I'm sender"
+        # data_packet = ip/TCP(dport=dst_port, flags="PA", seq=synack_response[TCP].ack, ack=synack_response[TCP].seq+1) / "Hello, I'm sender"
         
-        send(data_packet)
-        print("Data sent.")
+        # send(data_packet)
+        # print("Data sent.")
 
 def send_syn_packet(dst_ip, dst_port):
     # create IP layer
@@ -83,7 +83,7 @@ destination_port = args.port
 #     print(f"Sent TCP packet with MSS={mss}")
     
 
-send_syn_packet(destination_ip, destination_port)
-# create_tcp_connection(destination_ip, destination_port)
+# send_syn_packet(destination_ip, destination_port)
+create_tcp_connection(destination_ip, destination_port)
 
 # print("TCP packet with custom option sent.")
