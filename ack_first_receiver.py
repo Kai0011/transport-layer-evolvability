@@ -18,7 +18,8 @@ def handle_packet(packet):
 
             # 发送ACK响应
             ip = IP(src=packet[IP].dst, dst=packet[IP].src)
-            tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="PA", seq=100000, ack=packet[TCP].seq + len(packet[TCP].payload) + 321)
+            # tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="PA", seq=100000, ack=packet[TCP].seq + len(packet[TCP].payload) + 321)
+            tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="PA", seq=100000, ack=1535)
             ack_packet = ip/tcp_ack/payload
             send(ack_packet)
             print(f"Sent ACK with acknowledgment number: {tcp_ack.ack} and payload: {payload}")
