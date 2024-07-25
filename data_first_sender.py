@@ -9,7 +9,7 @@ def generate_random_port():
 def send_tcp_packet(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
 
-    first_seq = 1024
+    first_seq = 1023
     second_seq = 1736
     src_port = generate_random_port()
     
@@ -18,18 +18,25 @@ def send_tcp_packet(dst_ip, dst_port):
     
     payload_len1 = len(payload1)
     payload_len2 = len(payload2)
+
+    syn = ip/TCP(sport=src_port, dport=dst_port, flags="S", seq=first_seq)
+    syn_ack = sr1(syn)
+    
+    ack = ip/TCP(sport=src_host, dport=dst_port, flags="A", seq=syn_ack.ack, ack=syn_ack.seq + 1)
+    send(ack)
+    print("TCP handshake complete: SYN sent, SYN-ACK received, ACK sent")
     
     # 发送第一个包含数据的TCP包
-    tcp_data1 = TCP(sport=src_port, dport=dst_port, flags="PA", seq=first_seq, ack=17581103)
+    tcp_data1 = TCP(sport=src_port, dport=dst_port, flags="PA", seq=syn_ack.ack, ack=syn_ack.seq + 1)
     packet1 = ip/tcp_data1/payload1
     send(packet1)
 
-    end_seq1 = first_seq + payload_len1
-    print(f"Sent TCP packet 1 with start sequence number: {first_seq} and end sequence number: {end_seq1}")
+    end_seq1 = tcp_data1.seq + payload_len1
+    print(f"Sent TCP packet 1 with start sequence number: {tcp_data1.seq} and end sequence number: {end_seq1}")
 
     time.sleep(1)
 
-    tcp_data2 = TCP(sport=src_port, dport=dst_port, flags="PA", seq=second_seq, ack=17581199)
+    tcp_data2 = TCP(sport=src_port, dport=dst_port, flags="PA", seq=second_seq, ack=syn_ack.seq + 1)
     packet2 = ip/tcp_data2/payload2
     send(packet2)
 

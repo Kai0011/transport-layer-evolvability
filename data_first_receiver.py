@@ -2,15 +2,24 @@ import argparse
 from scapy.all import *
 
 def handle_packet(packet):
-    if TCP in packet and packet[TCP].flags == "PA":
-        print(f"Received TCP packet with sequence number: {packet[TCP].seq} and payload: {packet[TCP].payload}")
+    if TCP in packet:
+        if packet[TCP].flags == "S":
+            ip = IP(src=packet[IP].dst, dst = packet[IP].src)
+            syn_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="SA", seq=1000, ack=packet[TCP].seq + 1)
+            send(ip/syn_ack)
+            print("SYN-ACK sent")
+        elif packet[TCP].flags == "A":
+            print(f"ACK received: SEQ={packet[TCP].seq}, ACK={packet[TCP].ack}")
+            print("Connection established")
+        elif packet[TCP].flags == "PA":
+            print(f"Received TCP packet with sequence number: {packet[TCP].seq} and payload: {packet[TCP].payload}")
 
-        # 发送ACK响应
-        ip = IP(src=packet[IP].dst, dst=packet[IP].src)
-        tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="A", seq=packet[TCP].ack, ack=packet[TCP].seq + len(packet[TCP].payload))
-        ack_packet = ip/tcp_ack
-        send(ack_packet)
-        print(f"Sent ACK with acknowledgment number: {tcp_ack.ack}")
+            # 发送ACK响应
+            ip = IP(src=packet[IP].dst, dst=packet[IP].src)
+            tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="A", seq=packet[TCP].ack, ack=packet[TCP].seq + len(packet[TCP].payload))
+            ack_packet = ip/tcp_ack
+            send(ack_packet)
+            print(f"Sent ACK with acknowledgment number: {tcp_ack.ack}")
 
 def main(ip_filter):
     print("Listening for incoming TCP SYN packets...")
