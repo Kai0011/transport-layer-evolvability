@@ -1,22 +1,36 @@
 import argparse
 from scapy.all import *
+from scapy.layers.inet import IP, TCP
 
 def create_tcp_connection(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
+
+    isn = 724001
+    synack_isn = 17581102
     
-    syn = TCP(sport=RandShort(), dport=dst_port, flags="S", seq=252001, options=[('MSS', 512), (173, b'ABC')])
+    syn = TCP(sport=RandShort(), dport=dst_port, flags="S", seq=isn, options=[('MSS', 512), (173, 'ABC')])
     
     syn_packet = ip/syn
     
     synack_response = sr1(syn_packet)
     
-    print(synack_response[TCP].flags)
-    
-    if (synack_response[TCP].flags == "SA"):
-        print("SYN-ACK received")
-        ack = TCP(dport=dst_port, flags="A", seq=synack_response[TCP].ack, ack=synack_response[TCP].seq+1)
-        send(ip/ack)
-        print("ACK sent, TCP connection established.")
+    if synack_response and TCP in synack_response:
+        received_seq = synack_response[TCP].seq
+        if received_seq != synack_isn:
+            print(f"Received sequence number ({received_seq}) does not match expected ({synack_isn})")
+        
+        if synack_response[TCP].options:
+            for option in synack_response[TCP].options:
+                option_kind = option[0]
+                option_value = option[1]
+                print(f"Option Kind: {option_kind}, Option Value: {option_value}")
+        
+        if (synack_response[TCP].flags == "SA"):
+            print("SYN-ACK received")
+            
+            ack = TCP(sport=src_port, dport=dst_port, flags="A", seq=synack_response[TCP].ack, ack=received_seq+1)
+            send(ip/ack)
+            print("ACK sent, TCP connection established.")
         
         
         # send data
@@ -47,8 +61,6 @@ def send_tcp_with_mss(dst_ip, dst_port, mss_value):
     packet = ip/tcp
     send(packet)
     
-from scapy.all import *
-from scapy.layers.inet import IP, TCP
 
 def send_custom_tcp_option(dst_ip, dst_port):    
     option_kind = 254  # from 0 ~ 255

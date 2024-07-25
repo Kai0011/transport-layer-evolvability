@@ -1,0 +1,39 @@
+import argparse
+from scapy.all import *
+import time
+
+def send_tcp_packet(dst_ip, dst_port):
+    ip = IP(dst=dst_ip)
+    src_port = RandShort()
+
+    seq_num = 1024
+    payload = "Hello, Receiver! This is a data packet."
+
+    
+    tcp_data = TCP(sport=src_port, dport=dst_port, flags="PA", seq=seq_num)
+    packet = ip/tcp_data/payload
+    response = sr1(packet)
+
+    if response and TCP in response:
+        print(f"Received response with seq: {response[TCP].seq} and ack: {response[TCP].ack}")
+        
+        # 发送ACK响应
+        ack = TCP(sport=src_port, dport=dst_port, flags="A", seq=response.ack, ack=response.seq + len(response[TCP].payload))
+        send(ip/ack)
+        print(f"Sent ACK with ack number: {response.seq + len(response[TCP].payload)}")
+    else:
+        print("No response received")
+
+
+
+
+parser = argparse.ArgumentParser(description="Process IP and port")
+parser.add_argument('--ip', type=str, default='192.168.244.130')
+parser.add_argument('--port', type=int, default=80)
+args = parser.parse_args()
+
+destination_ip = args.ip
+destination_port = args.port
+    
+
+send_tcp_packet(destination_ip, destination_port)
