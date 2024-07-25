@@ -22,7 +22,7 @@ def send_tcp_packet(dst_ip, dst_port):
     syn = ip/TCP(sport=src_port, dport=dst_port, flags="S", seq=first_seq)
     syn_ack = sr1(syn)
     
-    ack = ip/TCP(sport=src_host, dport=dst_port, flags="A", seq=syn_ack.ack, ack=syn_ack.seq + 1)
+    ack = ip/TCP(sport=src_port, dport=dst_port, flags="A", seq=syn_ack.ack, ack=syn_ack.seq + 1)
     send(ack)
     print("TCP handshake complete: SYN sent, SYN-ACK received, ACK sent")
     
