@@ -27,7 +27,7 @@ def handle_packet(packet):
             send(dup_ack)
             print(f"Duplicate ACK sent with SEQ={dup_ack.seq}, ACK={dup_ack.ack}")
         elif "New Segment 2" in data.decode() or "Small" in data.decode() or "Larger Segment Data" in data.decode():
-            echo = IP(src=packet[IP].dst, dst=packet[IP].src)/TCP(sport=listen_port, dport=packet[TCP].sport, flags='PA', seq=ack_num, ack=seq_num+len(data))/data
+            echo = IP(src=packet[IP].dst, dst=packet[IP].src)/TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='PA', seq=ack_num, ack=seq_num+len(data))/data
             send(echo)
             print(f"Echo sent with SEQ={echo.seq}, ACK={echo.ack}, DATA='{data.decode()}'")
 
