@@ -5,7 +5,7 @@ def handle_packet(packet):
     if TCP in packet:
         if packet[TCP].flags == "S":
             ip = IP(src=packet[IP].dst, dst = packet[IP].src)
-            syn_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="SA", seq=1000, ack=packet[TCP].seq + 1)
+            syn_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="SA", seq=99999, ack=packet[TCP].seq + 1)
             send(ip/syn_ack)
             print("SYN-ACK sent")
         elif packet[TCP].flags == "A":

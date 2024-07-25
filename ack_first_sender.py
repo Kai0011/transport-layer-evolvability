@@ -21,6 +21,7 @@ def send_tcp_packet(dst_ip, dst_port):
     payload = "Hello, Receiver! This is a data packet."    
     tcp_data = TCP(sport=src_port, dport=dst_port, flags="PA", seq=syn_ack.ack, ack=syn_ack.seq + 1)
     packet = ip/tcp_data/payload
+    print("payload packet sent")
     response = sr1(packet)
 
     if response and TCP in response:
