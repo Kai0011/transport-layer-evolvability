@@ -2,12 +2,17 @@ import argparse
 from scapy.all import *
 import time
 
+def generate_random_port():
+    return random.randint(49152, 65535)
+
+
 def send_tcp_packet(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
     
     isn = 225300
+    src_port = generate_random_port()
     
-    tcp = TCP(sport=RandShort(), dport=dst_port, flags='S', seq = isn)
+    tcp = TCP(sport=src_port, dport=dst_port, flags='S', seq = isn)
 
     # 发起SYN以建立连接
     syn = ip/tcp
@@ -16,21 +21,21 @@ def send_tcp_packet(dst_ip, dst_port):
     print(f"SYN-ACK received with SEQ={syn_ack.seq}, ACK={syn_ack.ack}")
 
     # 发送ACK以完成握手
-    ack = ip/TCP(dport=target_port, flags='A', seq=syn_ack.ack, ack=syn_ack.seq+1)
+    ack = ip/TCP(sport=src_port, dport=dst_port, flags='A', seq=syn_ack.ack, ack=syn_ack.seq+1)
     send(ack)
     print(f"ACK sent with SEQ={ack.seq}, ACK={ack.ack}")
     
     # 发送第一个数据段
     data1 = "Segment 1"
     seq_num = ack.seq
-    pkt1 = ip/TCP(sport=ack.sport, dport=dst_port, flags='PA', seq=seq_num, ack=ack.ack)/data1
+    pkt1 = ip/TCP(sport=src_port, dport=dst_port, flags='PA', seq=seq_num, ack=ack.ack)/data1
     send(pkt1)
     print(f"Data sent: SEQ={pkt1.seq}, ACK={pkt1.ack}, DATA='{data1}'")
 
     seq_num2 = ack.seq + len(data1)
     # 发送第二个数据段
     data2 = "Segment 2"
-    pkt2 = ip/TCP(sport=pkt1.sport, dport=dst_port, flags='PA', seq=seq_num2, ack=pkt1.ack)/data2
+    pkt2 = ip/TCP(sport=src_port, dport=dst_port, flags='PA', seq=seq_num2, ack=pkt1.ack)/data2
     send(pkt2)
     print(f"Data sent: SEQ={pkt2.seq}, ACK={pkt2.ack}, DATA='{data2}'")
 
@@ -41,7 +46,7 @@ def send_tcp_packet(dst_ip, dst_port):
 
     # 发送不同数据的第二个段的重传
     data2_new = "New Segment 2"
-    pkt2_new = ip/TCP(sport=pkt2.sport, dport=dst_port, flags='PA', seq=seq_num2, ack=pkt2.ack)/data2_new
+    pkt2_new = ip/TCP(sport=src_port, dport=dst_port, flags='PA', seq=seq_num2, ack=pkt2.ack)/data2_new
     send(pkt2_new)
     print(f"Retransmission sent: SEQ={pkt2_new.seq}, ACK={pkt2_new.ack}, DATA='{data2_new}'")
 

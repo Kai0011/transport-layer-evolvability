@@ -2,12 +2,16 @@ import argparse
 from scapy.all import *
 import time
 
+def generate_random_port():
+    return random.randint(49152, 65535)
+
+
 def send_tcp_packet(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
-    src_port = RandShort()
 
     first_seq = 1024
     second_seq = 1736
+    src_port = generate_random_port()
     
     payload1 = "Hello, Receiver. This is packet 1."
     payload2 = "Hello, Receiver. This is packet 2."

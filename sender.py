@@ -2,14 +2,18 @@ import argparse
 from scapy.all import *
 from scapy.layers.inet import IP, TCP
 
+def generate_random_port():
+    return random.randint(49152, 65535)
+
 def create_tcp_connection(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
 
     isn = 724001
     synack_isn = 17581102
     
-    syn = TCP(sport=RandShort(), dport=dst_port, flags="S", seq=isn, options=[('MSS', 512), (173, 'ABC')])
+    src_port = generate_random_port()
     
+    syn = TCP(sport=src_port, dport=dst_port, flags="S", seq=isn, options=[('MSS', 512), (173, 'ABC')])
     syn_packet = ip/syn
     
     synack_response = sr1(syn_packet)

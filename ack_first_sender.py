@@ -2,9 +2,12 @@ import argparse
 from scapy.all import *
 import time
 
+def generate_random_port():
+    return random.randint(49152, 65535)
+
 def send_tcp_packet(dst_ip, dst_port):
     ip = IP(dst=dst_ip)
-    src_port = RandShort()
+    src_port = generate_random_port()
 
     seq_num = 1024
     payload = "Hello, Receiver! This is a data packet."
