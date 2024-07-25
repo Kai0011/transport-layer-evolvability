@@ -1,5 +1,6 @@
 import argparse
 from scapy.all import *
+import time
 
 def handle_packet(packet):
     if packet[TCP].flags == 'S':
@@ -18,6 +19,7 @@ def handle_packet(packet):
         ack_num = packet[TCP].ack
         print(f"Data received: SEQ={seq_num}, ACK={ack_num}, DATA='{data.decode()}'")
         if "Segment 1" in data.decode():
+            time.sleep(1)
             # 发送第一个段的累积ACK
             ack = IP(src=packet[IP].dst, dst=packet[IP].src)/TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=ack_num, ack=seq_num+len(data))
             send(ack)
