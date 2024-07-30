@@ -18,12 +18,25 @@ def send_tcp_packet(dst_ip, dst_port):
     send(ack)
     print("TCP handshake complete: SYN sent, SYN-ACK received, ACK sent")
     
-    payload = "Hello, Receiver! This is a data packet."    
-    tcp_data = TCP(sport=src_port, dport=dst_port, flags="PA", seq=syn_ack.ack, ack=2307)
+    # 发送带有数据的TCP包
+    payload = "Hello, Receiver! This is a data packet."
+    tcp_data = TCP(sport=src_port, dport=dst_port, flags="PA", seq=syn_ack.ack, ack=syn_ack.seq + 1)
     packet = ip/tcp_data/payload
-    response = sr1(packet)
+    send(packet)
 
-    if response and TCP in response:
+    print(f"Sent TCP data packet with seq: {tcp_data.seq} and ack: {tcp_data.ack} and payload: {payload}")
+
+    # 捕获响应数据包
+    def packet_callback(packet):
+        return (TCP in packet and
+                packet[IP].src == dst_ip and
+                packet[TCP].dport == src_port and
+                packet[TCP].flags & 0x10)  # 仅捕获带有ACK标志的数据包
+
+    response = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=packet_callback)
+
+    if response:
+        response = response[0]
         print(f"Received response with seq: {response[TCP].seq} and ack: {response[TCP].ack}")
         
         # 发送ACK响应
