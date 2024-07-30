@@ -42,6 +42,8 @@ def handle_packet(packet):
                 }
                 
                 response_inital_packet = ip / udp / Raw(load=response_initial_header)
+                
+                print(response_inital_packet[Raw].load)
                 send(initial_packet)
         
 
