@@ -13,12 +13,14 @@ def handle_packet(packet):
     if Raw in packet:
         payload = packet[Raw].load
         print("Received Packet Payload:", payload)
+    else:
+        print("NO response")
 
 def build_initial_packet(dst_ip, dst_port):
     src_port = generate_random_port()
     
     ip = IP(dst=dst_ip)
-    upd = UDP(sport=src_port, dport=dst_port)
+    udp = UDP(sport=src_port, dport=dst_port)
     
     header_form = 1 << 7
     fixed_bit = 1 << 6
@@ -66,7 +68,7 @@ def build_initial_packet(dst_ip, dst_port):
     
 parser = argparse.ArgumentParser(description="Process IP and port")
 parser.add_argument('--ip', type=str, default='192.168.244.130')
-parser.add_argument('--port', type=int, default=80)
+parser.add_argument('--port', type=int, default=443)
 args = parser.parse_args()
 
 destination_ip = args.ip

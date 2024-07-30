@@ -7,7 +7,7 @@ def generate_random_bytes(length):
 def handle_packet(packet):
     if packet.haslayer(UDP):
         ip = IP(src=packet[IP].dst, dst=packet[IP].src)
-        udp = UDP(sport=packet[UDP].dport, dport=packet[TCP].sport)
+        udp = UDP(sport=packet[UDP].dport, dport=packet[UDP].sport)
         if Raw in packet:
             quic_initial_header = packet[Raw].load
             
