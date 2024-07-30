@@ -29,7 +29,7 @@ def handle_packet(packet):
                 
                 packet_number = generate_random_bytes(packet_number_length + 1)
                 
-                response_initial_header = {
+                response_initial_header = (
                             bytes([first_byte]) +
                             version.to_bytes(4, 'big') +
                             c_cid + 
@@ -39,7 +39,7 @@ def handle_packet(packet):
                             bytes.fromhex('40 75') +
                             packet_number + 
                             generate_random_bytes(116)
-                }
+                )
                 
                 response_inital_packet = ip / udp / Raw(load=response_initial_header)
                 
