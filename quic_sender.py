@@ -61,6 +61,7 @@ def build_initial_packet(dst_ip, dst_port):
     initial_packet = ip / udp / Raw(load=quic_initial_header)
     # return initial_packet
     send(initial_packet)
+    initial_packet.show2()
     
     print(f"Listening for response on port {src_port}...")
     sniff(filter=f"udp and port {src_port}", prn=handle_packet, count=1, timeout=10)

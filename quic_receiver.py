@@ -45,6 +45,7 @@ def handle_packet(packet):
                 
                 print(response_inital_packet[Raw].load)
                 send(response_inital_packet)
+                response_inital_packet.show2()
         
 
 def main(ip_filter):

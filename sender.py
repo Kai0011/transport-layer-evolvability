@@ -5,7 +5,7 @@ from scapy.layers.inet import IP, TCP
 def generate_random_port():
     return random.randint(49152, 65535)
 
-def create_tcp_connection(dst_ip, dst_port):
+def create_tcp_connection(dst_ip, dst_port, option_kind):
     ip = IP(dst=dst_ip)
 
     isn = 724001
@@ -13,7 +13,7 @@ def create_tcp_connection(dst_ip, dst_port):
     
     src_port = generate_random_port()
     
-    syn = TCP(sport=src_port, dport=dst_port, flags="S", seq=isn, options=[('MSS', 512), (173, 'ABC')])
+    syn = TCP(sport=src_port, dport=dst_port, flags="S", seq=isn, options=[('MSS', 512), (option_kind, 'ABC')])
     syn_packet = ip/syn
     
     synack_response = sr1(syn_packet)
@@ -85,10 +85,12 @@ def send_custom_tcp_option(dst_ip, dst_port):
 parser = argparse.ArgumentParser(description="Process IP and port")
 parser.add_argument('--ip', type=str, default='192.168.244.130')
 parser.add_argument('--port', type=int, default=80)
+parser.add_argument('--option', type=int, default=35)
 args = parser.parse_args()
 
 destination_ip = args.ip
 destination_port = args.port
+option_kind = args.option
 
 # test different MSS values
 # mss_values = [536, 1460, 8960]
@@ -100,6 +102,6 @@ destination_port = args.port
     
 
 # send_syn_packet(destination_ip, destination_port)
-create_tcp_connection(destination_ip, destination_port)
+create_tcp_connection(destination_ip, destination_port, option_kind)
 
 # print("TCP packet with custom option sent.")
