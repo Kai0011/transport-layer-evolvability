@@ -10,11 +10,9 @@ def generate_random_bytes(length):
     return os.urandom(length)
 
 def handle_packet(packet):
-    if Raw in packet:
-        payload = packet[Raw].load
-        print("Received Packet Payload:", payload)
-    else:
-        print("NO response")
+    print("Response packet received: ")
+    packet.show2()
+
 
 def build_initial_packet(dst_ip, dst_port):
     src_port = generate_random_port()
@@ -56,11 +54,11 @@ def build_initial_packet(dst_ip, dst_port):
         padding = bytes(padding_length)
         quic_initial_header += padding
         
-    print("QUIC Initial Header Length:", len(quic_initial_header))
     
     initial_packet = ip / udp / Raw(load=quic_initial_header)
     # return initial_packet
     send(initial_packet)
+    print("Initial packet sent")
     initial_packet.show2()
     
     print(f"Listening for response on port {src_port}...")

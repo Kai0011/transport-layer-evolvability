@@ -29,8 +29,6 @@ def send_tcp_packet(dst_ip, dst_port):
     # 捕获响应数据包
     def packet_callback(packet):
         return (TCP in packet and
-                packet[IP].src == dst_ip and
-                packet[TCP].dport == src_port and
                 packet[TCP].flags & 0x10)  # 仅捕获带有ACK标志的数据包
 
     response = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=packet_callback)

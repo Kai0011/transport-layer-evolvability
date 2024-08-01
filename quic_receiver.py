@@ -5,6 +5,9 @@ def generate_random_bytes(length):
     return os.urandom(length)
 
 def handle_packet(packet):
+    if packet:
+        print("Initial Packet received: ")
+        packet.show2()
     if packet.haslayer(UDP):
         ip = IP(src=packet[IP].dst, dst=packet[IP].src)
         udp = UDP(sport=packet[UDP].dport, dport=packet[UDP].sport)
@@ -45,6 +48,7 @@ def handle_packet(packet):
                 
                 print(response_inital_packet[Raw].load)
                 send(response_inital_packet)
+                print("Response packet sent:")
                 response_inital_packet.show2()
         
 

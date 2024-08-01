@@ -31,6 +31,14 @@ def send_tcp_packet(dst_ip, dst_port):
     packet1 = ip/tcp_data1/payload1
     send(packet1)
 
+    def packet_callback(packet):
+        return (TCP in packet and
+                packet[TCP].flags & 0x10)
+
+    packet1_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=packet_callback)
+    if packet1_ack:
+        print(f"Received ack 1 value: {packet1_ack[0][TCP].ack}")
+
     end_seq1 = tcp_data1.seq + payload_len1
     print(f"Sent TCP packet 1 with start sequence number: {tcp_data1.seq} and end sequence number: {end_seq1}")
 
@@ -39,6 +47,10 @@ def send_tcp_packet(dst_ip, dst_port):
     tcp_data2 = TCP(sport=src_port, dport=dst_port, flags="PA", seq=second_seq, ack=syn_ack.seq + 1)
     packet2 = ip/tcp_data2/payload2
     send(packet2)
+    
+    packet2_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=packet_callback)
+    if packet2_ack:
+        print(f"Received ack 2 value: {packet2_ack[0][TCP].ack}")
 
     end_seq2 = second_seq + payload_len2
     print(f"Sent TCP packet 2 with start sequence number: {second_seq} and end sequence number: {end_seq2}")
