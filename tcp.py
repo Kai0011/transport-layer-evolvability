@@ -14,7 +14,7 @@ wrong_ts_option = [('MSS', 512), (8, b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\
 
 
 # create a TCP packet
-tcp = TCP(sport=RandShort(), dport=target_port, flags="S", options=wrong_ts_option)
+tcp = TCP(sport=RandShort(), dport=target_port, flags="S", options=options)
 # combine the packet
 packet = ip/tcp
 

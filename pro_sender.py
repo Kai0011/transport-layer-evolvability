@@ -1,5 +1,5 @@
-import argparse
 from scapy.all import *
+import argparse
 import contextlib
 import time
 
@@ -14,6 +14,7 @@ def generate_random_port():
 
 def create_syn_packet(dst_port, isn, p_options):
     # generate a random src port
+    
     src_port = generate_random_port()
     syn = TCP(sport=src_port, dport=dst_port, flags="S", seq=isn, options=p_options)
     return syn
@@ -26,7 +27,7 @@ def three_whs(dst_ip, dst_port, p_options):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, MSS_option)
+            syn = create_syn_packet(dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("3whs SYN sent:")
@@ -51,8 +52,8 @@ def three_whs(dst_ip, dst_port, p_options):
                     ack.show2()
                     hexdump(ack)
                 
-                data_packet = ip/TCP(sport=src_port, dport=dst_port, flags="PA", seq=synack[TCP].ack, ack=received_seq+1) / "Please echo the options sent"
-                send(data_packet)
+                data_packet = TCP(sport=src_port, dport=dst_port, flags="PA", seq=synack[TCP].ack, ack=received_seq+1, options=p_options) / "Please echo the options sent"
+                send(ip/data_packet)
                 print("3whs Data sent.")
                 data_packet.show2()
                 hexdump(data_packet)
@@ -97,8 +98,8 @@ def three_whs_plus(dst_ip, dst_port, p_options):
                     ack.show2()
                     hexdump(ack)
                 
-                data_packet = ip/TCP(sport=src_port, dport=dst_port, flags="PA", seq=synack[TCP].ack, ack=received_seq+1) / "Please echo the options sent"
-                send(data_packet)
+                data_packet = TCP(sport=src_port, dport=dst_port, flags="PA", seq=synack[TCP].ack, ack=received_seq+1) / "Please echo the options sent"
+                send(ip/data_packet)
                 print("3whs plus Data sent.")
                 data_packet.show2()
                 hexdump(data_packet)
@@ -141,7 +142,7 @@ def ack_first_test(dst_ip, dst_port):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, MSS_option)
+            syn = create_syn_packet(dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("Ack First SYN sent:")
@@ -185,7 +186,7 @@ def data_first_test(dst_ip, dst_port):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, MSS_option)
+            syn = create_syn_packet(dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("Data First SYN sent:")
@@ -250,7 +251,7 @@ def retransmission_test(dst_ip, dst_port):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, MSS_option)
+            syn = create_syn_packet(dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("Data First SYN sent:")
@@ -317,17 +318,17 @@ option_kind = args.option
 MSS_option = ('MSS', 512)
 unknown_options = [MSS_option, (35, b'\x00\x00\x00')]
 experiment_option = [MSS_option, (253, b'\x00\x00\x00')]
-wrong_ts_option = [MSS_option, (8, 16, b'\x00' * 14)]
+wrong_ts_option = [MSS_option, (8, b'\x00' * 14)]
 complete_0_option = [b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00']
 
-options_array = []
+# options_list = []
 
 
-# 将元组放入队列中
-options_array.append(("unknown", unknown_options))
-options_array.append(("experiment", experiment_option))
-options_array.append(("wrong_ts", wrong_ts_option))
-options_array.append(("complete_0", complete_0_option))
+# # 将元组放入队列中
+# options_list.append(("unknown", unknown_options))
+# options_list.append(("experiment", experiment_option))
+# options_list.append(("wrong_ts", wrong_ts_option))
+# options_list.append(("complete_0", complete_0_option))
 
 dst_ports = [80, 443, 49312]
 
@@ -336,25 +337,27 @@ synack_isn = 17581102
 
 logs_folder = "logs/tcp/"
 
-for dst_port in dst_ports:
-    print(f"Port {dst_port} starts")
-    for name, options in options_array:
-        print(f"P {dst_port}, {name}, 3whs")
-        three_whs(destination_ip, dst_port, options)
-        print(f"P {dst_port}, {name}, 3whs - plus")
-        three_whs_plus(destination_ip, dst_port, options)
-        print(f"P {dst_port}, {name}, data directly")
-        data_directly(destination_ip, dst_port, options)
+# for dst_port in dst_ports:
+#     print(f"Port {dst_port} starts")
+#     for name, options in options_list:
+#         print(f"P {dst_port}, {name}, 3whs")
+#         three_whs(destination_ip, dst_port, options)
+#         print(f"P {dst_port}, {name}, 3whs - plus")
+#         three_whs_plus(destination_ip, dst_port, options)
+#         print(f"P {dst_port}, {name}, data directly")
+#         data_directly(destination_ip, dst_port, options)
         
-    print(f"P {dst_port}, data first")
-    data_first_test(destination_ip, dst_port)
+#     print(f"P {dst_port}, data first")
+#     data_first_test(destination_ip, dst_port)
     
-    print(f"P {dst_port}, ack first")
-    ack_first_test(destination_ip, dst_port)
+#     print(f"P {dst_port}, ack first")
+#     ack_first_test(destination_ip, dst_port)
     
-    print(f"P {dst_port}, retransmission")
-    retransmission_test(destination_ip, dst_port)
+#     print(f"P {dst_port}, retransmission")
+#     retransmission_test(destination_ip, dst_port)
         
+
+three_whs(destination_ip, destination_port, complete_0_option)
     
     
 
