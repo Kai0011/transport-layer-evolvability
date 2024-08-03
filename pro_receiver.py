@@ -13,9 +13,7 @@ def handle_packet(packet):
     with open(log_path, "a") as log_file:
         with contextlib.redirect_stdout(log_file):
             if TCP in packet:
-                if packet[TCP].flags == "S":
-                    print("It works")
-                # print("Flag: " + packet[TCP].flags + "\n")
+                print(f"Flag: {packet[TCP].flags}\n")
                 packet.show2()
                 hexdump(packet)
                 if packet[TCP].flags == "S":

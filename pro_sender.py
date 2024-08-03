@@ -20,9 +20,9 @@ def create_syn_packet(dst_port, isn, p_options):
     return syn
 
 # SYN keeps clean and data packet with options
-def three_whs(dst_ip, dst_port, p_options):
-    log_path = f"{logs_folder}3whs_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+def three_whs(dst_ip, dst_port, name, p_options):
+    log_path = f"{logs_folder}3whs_{dst_port}_{name}_log.txt"
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
@@ -58,7 +58,7 @@ def three_whs(dst_ip, dst_port, p_options):
                 data_packet.show2()
                 hexdump(data_packet)
                 
-                response = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=ack_callback)
+                response = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=2, lfilter=ack_callback)
                 
                 if response:
                     response = response[0]
@@ -357,7 +357,7 @@ logs_folder = "logs/tcp/"
 #     retransmission_test(destination_ip, dst_port)
         
 
-three_whs(destination_ip, destination_port, complete_0_option)
+three_whs(destination_ip, destination_port, "complete0", complete_0_option)
     
     
 
