@@ -19,7 +19,7 @@ def send_tcp_packet(dst_ip, dst_port):
     print("TCP handshake complete: SYN sent, SYN-ACK received, ACK sent")
     
     # 发送带有数据的TCP包
-    payload = "Hello, Receiver! This is a data packet."
+    payload = "ack first test"
     tcp_data = TCP(sport=src_port, dport=dst_port, flags="PA", seq=syn_ack.ack, ack=syn_ack.seq + 1)
     packet = ip/tcp_data/payload
     send(packet)
