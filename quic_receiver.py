@@ -8,7 +8,7 @@ def generate_random_bytes(length):
     return os.urandom(length)
 
 def handle_packet(packet):
-    dst_port = packet[TCP].dport
+    dst_port = packet[UDP].dport
     log_path = f"{log_folder}quic_receiver_{dst_port}_log.txt"
     with open(log_path, "a") as log_file:
         with contextlib.redirect_stdout(log_file):
