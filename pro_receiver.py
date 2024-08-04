@@ -47,7 +47,7 @@ def handle_packet(packet):
                         tcp_ack.show2()
                         hexdump(tcp_ack)
                     elif "segment 1" in data.decode():
-                        time.sleep(1.5)
+                        time.sleep(0.5)
                         
                         ip = IP(src=packet[IP].dst, dst=packet[IP].src)
                         tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
@@ -56,6 +56,8 @@ def handle_packet(packet):
                         print("Retran: first ack sent:")
                         tcp_ack.show2()
                         hexdump(tcp_ack)
+                        
+                        time.sleep(1)
                         
                         dup_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
                         send(ip/dup_ack) 
