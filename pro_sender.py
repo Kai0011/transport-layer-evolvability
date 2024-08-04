@@ -12,10 +12,7 @@ def ack_callback(packet):
 def generate_random_port():
     return random.randint(49152, 65535)
 
-def create_syn_packet(dst_port, isn, p_options):
-    # generate a random src port
-    
-    src_port = generate_random_port()
+def create_syn_packet(src_port, dst_port, isn, p_options):
     syn = TCP(sport=src_port, dport=dst_port, flags="S", seq=isn, options=p_options)
     return syn
 
@@ -27,7 +24,7 @@ def three_whs(dst_ip, dst_port, name, p_options):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, [MSS_option])
+            syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("3whs SYN sent:")
@@ -62,18 +59,19 @@ def three_whs(dst_ip, dst_port, name, p_options):
                 
                 if response:
                     response = response[0]
+                    ack_response = response[TCP]
                     print("3whs ACK received:")
-                    response.show2()
-                    hexdump(response)
+                    ack_response.show2()
+                    hexdump(ack_response)
     
-def three_whs_plus(dst_ip, dst_port, p_options):
-    log_path = f"{logs_folder}3whsPlus_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+def three_whs_plus(dst_ip, dst_port, name, p_options):
+    log_path = f"{logs_folder}3whsPlus_{dst_port}_{name}_log.txt"
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, p_options)
+            syn = create_syn_packet(src_port, dst_port, isn, p_options)
             syn_packet = (ip/syn)
 
             print("3whs plus SYN sent:")
@@ -108,14 +106,15 @@ def three_whs_plus(dst_ip, dst_port, p_options):
                 
                 if response:
                     response = response[0]
-                    print("3whs plus ACK received:")
-                    response.show2()
-                    hexdump(response)
+                    ack_response = response[TCP]
+                    print("3whs ACK plus received:")
+                    ack_response.show2()
+                    hexdump(ack_response)
 
                     
-def data_directly(dst_ip, dst_port, p_options):
-    log_path = f"{logs_folder}data_directly_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+def data_directly(dst_ip, dst_port, name, p_options):
+    log_path = f"{logs_folder}data_directly_{dst_port}_{name}_log.txt"
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
@@ -131,18 +130,19 @@ def data_directly(dst_ip, dst_port, p_options):
             
             if response:
                 response = response[0]
-                print("data directly ACK received:")
-                response.show2()
-                hexdump(response)
+                ack_response = response[TCP]
+                print("Data directly ACK received:")
+                ack_response.show2()
+                hexdump(ack_response)
 
 def ack_first_test(dst_ip, dst_port):
     log_path = f"{logs_folder}ack_first_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, [MSS_option])
+            syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("Ack First SYN sent:")
@@ -174,19 +174,20 @@ def ack_first_test(dst_ip, dst_port):
                     
                     if response:
                         response = response[0]
-                        print("Ack first ACK received:")
-                        response.show2()
-                        hexdump(response)
+                        ack_response = response[TCP]
+                        print("Ack First test ACK received:")
+                        ack_response.show2()
+                        hexdump(ack_response)
                         
                     
 def data_first_test(dst_ip, dst_port):
     log_path = f"{logs_folder}data_first_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, [MSS_option])
+            syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("Data First SYN sent:")
@@ -223,9 +224,10 @@ def data_first_test(dst_ip, dst_port):
                     
                     packet1_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=ack_callback)
                     
-                    print("ACK for packet1 received: ")
-                    packet1_ack.show2()
-                    hexdump(packet1_ack)
+                    print("Data Fiest ACK for packet1 received: ")
+                    for pkt in packet1_ack:
+                        pkt[TCP].show2()
+                        hexdump(pkt[TCP])
                     
                     time.sleep(1)
 
@@ -241,17 +243,18 @@ def data_first_test(dst_ip, dst_port):
                     packet2_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=ack_callback)
                     
                     print("Data First ACK for packet2 received: ")
-                    packet2_ack.show2()
-                    hexdump(packet2_ack)
+                    for pkt in packet2_ack:
+                        pkt[TCP].show2()
+                        hexdump(pkt[TCP])
                     
 def retransmission_test(dst_ip, dst_port):
     log_path = f"{logs_folder}retran_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             ip = IP(dst=dst_ip)
             src_port = generate_random_port()
             
-            syn = create_syn_packet(dst_port, isn, [MSS_option])
+            syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
             print("Data First SYN sent:")
@@ -293,6 +296,8 @@ def retransmission_test(dst_ip, dst_port):
                     ack1 = sniff(filter=f"tcp and host {dst_ip} and port {dst_port}", count=2, lfilter=ack_callback)
                     for pkt in ack1:
                         print(f"Retran test: ACK received: SEQ={pkt[TCP].seq}, ACK={pkt[TCP].ack}")
+                        pkt[TCP].show2()
+                        hexdump(pkt[TCP])
                     
                     payload2_new = "new modified updated segment 2"
                     new_tcp_packet2 = TCP(sport=src_port, dport=dst_port, flags='PA', seq=seq_num2, ack=ack.ack)/payload2_new 
@@ -321,14 +326,13 @@ experiment_option = [MSS_option, (253, b'\x00\x00\x00')]
 wrong_ts_option = [MSS_option, (8, b'\x00' * 14)]
 complete_0_option = [b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00', b'\x00\x00']
 
-# options_list = []
+p_options_list = []
 
 
-# # 将元组放入队列中
-# options_list.append(("unknown", unknown_options))
-# options_list.append(("experiment", experiment_option))
-# options_list.append(("wrong_ts", wrong_ts_option))
-# options_list.append(("complete_0", complete_0_option))
+p_options_list.append(("unknown", unknown_options))
+p_options_list.append(("experiment", experiment_option))
+p_options_list.append(("wrongts", wrong_ts_option))
+p_options_list.append(("complete0", complete_0_option))
 
 dst_ports = [80, 443, 49312]
 
@@ -337,15 +341,15 @@ synack_isn = 17581102
 
 logs_folder = "logs/tcp/"
 
-# for dst_port in dst_ports:
-#     print(f"Port {dst_port} starts")
-#     for name, options in options_list:
-#         print(f"P {dst_port}, {name}, 3whs")
-#         three_whs(destination_ip, dst_port, options)
+for dst_port in dst_ports:
+    print(f"Port {dst_port} starts")
+    for name, options in p_options_list:
+        print(f"P {dst_port}, {name}, 3whs")
+        three_whs(destination_ip, dst_port, name, options)
 #         print(f"P {dst_port}, {name}, 3whs - plus")
-#         three_whs_plus(destination_ip, dst_port, options)
+#         three_whs_plus(destination_ip, dst_port, name, options)
 #         print(f"P {dst_port}, {name}, data directly")
-#         data_directly(destination_ip, dst_port, options)
+#         data_directly(destination_ip, dst_port, name, options)
         
 #     print(f"P {dst_port}, data first")
 #     data_first_test(destination_ip, dst_port)
@@ -357,8 +361,7 @@ logs_folder = "logs/tcp/"
 #     retransmission_test(destination_ip, dst_port)
         
 
-three_whs(destination_ip, destination_port, "complete0", complete_0_option)
-    
+# three_whs(destination_ip, destination_port, "experiment", experiment_option)
     
 
 

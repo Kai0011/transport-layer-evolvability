@@ -10,7 +10,7 @@ log_folder = "logs/tcp/"
 def handle_packet(packet):
     dst_port = packet[TCP].dport
     log_path = f"{log_folder}tcp_receiver_{dst_port}_log.txt"
-    with open(log_path, "a") as log_file:
+    with open(log_path, "w") as log_file:
         with contextlib.redirect_stdout(log_file):
             if TCP in packet:
                 print(f"Flag: {packet[TCP].flags}\n")
