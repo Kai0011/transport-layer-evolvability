@@ -1,8 +1,8 @@
 import argparse
 import contextlib
 from scapy.all import *
+import os
 
-log_folder = "logs/quic/"
 
 def generate_random_bytes(length):
     return os.urandom(length)
@@ -61,14 +61,21 @@ def handle_packet(packet):
         
 
 def main(ip_filter):
+    os.makedirs(log_folder, exist_ok=True)
+    
     print("Listening for incoming QUIC packets...")
     sniff(filter=ip_filter, prn=handle_packet)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="filter IP address")
     parser.add_argument('--ip', type=str, default='128.105.144.164')
+    parser.add_argument('--fd', type=str, default='campus')
     args = parser.parse_args()
 
     ip = args.ip
+    fd = args.fd
+    
+    log_folder = f"logs/quic/{fd}/"
+    
     ip_filter = "udp and src host " + ip
     main(ip_filter)
