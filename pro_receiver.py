@@ -47,7 +47,7 @@ def handle_packet(packet):
                         tcp_ack.show2()
                         hexdump(tcp_ack)
                     elif "segment 1" in data.decode():
-                        time.sleep(2)
+                        time.sleep(1.5)
                         
                         ip = IP(src=packet[IP].dst, dst=packet[IP].src)
                         tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
@@ -64,9 +64,6 @@ def handle_packet(packet):
                         dup_ack.show2()
                         hexdump(dup_ack)
                         
-                    elif "segment 2" in data.decode():
-                        print("Segment 2 received above, donot do anything")
-                        
                     elif "new modified updated segment 2" in data.decode():
                         # ip = IP(src=packet[IP].dst, dst=packet[IP].src)
                         # tcp_echo = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='PA', seq=ack_num, ack=packet[TCP].seq + len(data))/data
@@ -76,6 +73,9 @@ def handle_packet(packet):
                         # tcp_echo.show2()
                         # hexdump(tcp_echo)
                         print("Retran: new modified updated segment 2 received")
+                        
+                    elif "segment 2" in data.decode():
+                        print("Segment 2 received above, donot do anything")
                         
                     else:
                         ip = IP(src=packet[IP].dst, dst=packet[IP].src)

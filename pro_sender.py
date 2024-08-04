@@ -300,7 +300,7 @@ def retransmission_test(dst_ip, dst_port):
                     tcp_packet2.show2()
                     hexdump(tcp_packet2)
 
-                    ack1 = sniff(filter=f"tcp and host {dst_ip} and port {dst_port}", count=2, timeout=2, lfilter=ack_callback)
+                    ack1 = sniff(filter=f"tcp and host {dst_ip} and port {dst_port}", count=2, timeout=3, lfilter=ack_callback)
                     for pkt in ack1:
                         print(f"Retran: ACK received: SEQ={pkt[TCP].seq}, ACK={pkt[TCP].ack}")
                         pkt[TCP].show2()
