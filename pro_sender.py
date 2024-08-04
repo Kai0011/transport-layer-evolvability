@@ -134,6 +134,8 @@ def data_directly(dst_ip, dst_port, name, p_options):
                 print("Data directly: ACK received:")
                 ack_response.show2()
                 hexdump(ack_response)
+            else:
+                print(f"No response for data direcelt test in Port: {dst_port}")
 
 def ack_first_test(dst_ip, dst_port):
     log_path = f"{logs_folder}ack_first_{dst_port}_log.txt"
@@ -351,26 +353,27 @@ hole_size = 500
 logs_folder = "logs/tcp/"
 
 for dst_port in dst_ports:
-    print(f"Port {dst_port} starts")
-    # for name, options in p_options_list:
-        # print(f"P {dst_port}, {name}, 3whs\n")
-        # three_whs(destination_ip, dst_port, name, options)
-        # print(f"P {dst_port}, {name}, 3whs - plus\n")
-        # three_whs_plus(destination_ip, dst_port, name, options)
-        # print(f"P {dst_port}, {name}, data directly\n")
-        # data_directly(destination_ip, dst_port, name, options)
+    print(f"Port {dst_port} starts\n")
+    for name, options in p_options_list:
+        print(f"P {dst_port}, {name}, 3whs\n")
+        three_whs(destination_ip, dst_port, name, options)
+        print(f"P {dst_port}, {name}, 3whs - plus\n")
+        three_whs_plus(destination_ip, dst_port, name, options)
+        print(f"P {dst_port}, {name}, data directly\n")
+        data_directly(destination_ip, dst_port, name, options)
+
+for dst_port in dst_ports:
         
-    # print(f"P {dst_port}, data first")
-    # data_first_test(destination_ip, dst_port)
+    print(f"P {dst_port}, data first\n")
+    data_first_test(destination_ip, dst_port)
     
-    # print(f"P {dst_port}, ack first\n")
-    # ack_first_test(destination_ip, dst_port)
+    print(f"P {dst_port}, ack first\n")
+    ack_first_test(destination_ip, dst_port)
     
-    print(f"P {dst_port}, retransmission")
+    print(f"P {dst_port}, retransmission\n")
     retransmission_test(destination_ip, dst_port)
         
 
-# three_whs(destination_ip, destination_port, "experiment", experiment_option)
     
 
 

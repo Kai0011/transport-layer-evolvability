@@ -57,7 +57,7 @@ def handle_packet(packet):
                         send(response_inital_packet)
                         print("Response packet sent:")
                         response_inital_packet.show2()
-                        print(response_inital_packet[Raw].load)
+                        hexdump(response_inital_packet)
         
 
 def main(ip_filter):

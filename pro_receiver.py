@@ -1,6 +1,7 @@
 import argparse
 from scapy.all import *
 import contextlib
+import os
 
 isn = 17581102
 sender_isn = 724001
@@ -91,14 +92,24 @@ def handle_packet(packet):
                     
 
 def main(ip_filter):
+    os.makedirs(log_folder, exist_ok=True)
+    
     print("Listening for incoming TCP packets...")
     sniff(filter=ip_filter, prn=handle_packet)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="filter IP address")
     parser.add_argument('--ip', type=str, default='128.105.144.164')
+    parser.add_argument('--fd', type=str, default='campus')
     args = parser.parse_args()
-
+    
     ip = args.ip
+    fd = args.fd
+
+    isn = 17581102
+    sender_isn = 724001
+    hole_size = 500
+    log_folder = f"logs/tcp/{fd}/"
+
     ip_filter = "tcp and src host " + ip
     main(ip_filter)
