@@ -3,11 +3,6 @@ from scapy.all import *
 import contextlib
 import os
 
-isn = 17581102
-sender_isn = 724001
-hole_size = 500
-log_folder = "logs/tcp/"
-
 def handle_packet(packet):
     dst_port = packet[TCP].dport
     log_path = f"{log_folder}tcp_receiver_{dst_port}_log.txt"
