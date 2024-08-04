@@ -122,16 +122,16 @@ def data_directly(dst_ip, dst_port, name, p_options):
             data_packet = ip/TCP(sport=src_port, dport=dst_port, flags="PA", seq=isn) / "Please echo the options sent"
             send(data_packet)
             
-            print("data directly Data sent.")
+            print("Data directly: Data sent.")
             data_packet.show2()
             hexdump(data_packet)
             
-            response = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=ack_callback)
+            response = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=2, lfilter=ack_callback)
             
             if response:
                 response = response[0]
                 ack_response = response[TCP]
-                print("Data directly ACK received:")
+                print("Data directly: ACK received:")
                 ack_response.show2()
                 hexdump(ack_response)
 
@@ -145,7 +145,7 @@ def ack_first_test(dst_ip, dst_port):
             syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
-            print("Ack First SYN sent:")
+            print("Ack First: SYN sent:")
             syn_packet.show2()
             hexdump(syn_packet)
         
@@ -153,20 +153,20 @@ def ack_first_test(dst_ip, dst_port):
             
             if synack and TCP in synack:
                 if (synack[TCP].flags == "SA"):
-                    print("Ack first SYN-ACK received:")
+                    print("Ack first: SYN-ACK received:")
                     synack.show2()
                     hexdump(synack)
 
                     ack = TCP(sport=src_port, dport=dst_port, flags="A", seq=synack[TCP].ack, ack=synack[TCP].seq+1)
                     send(ip/ack)
-                    print("Ack first ACK sent, TCP connection established.")
+                    print("Ack first: ACK sent, TCP connection established.")
                     ack.show2()
                     hexdump(ack)
                     
                     payload = "ack first test"
                     data_packet = TCP(sport=src_port, dport=dst_port, flags="PA", seq=synack[TCP].ack, ack=synack[TCP].seq+1) / payload
                     send(ip/data_packet)
-                    print("Ack first Data sent.")
+                    print("Ack first: Data sent.")
                     data_packet.show2()
                     hexdump(data_packet)
                     
@@ -175,9 +175,16 @@ def ack_first_test(dst_ip, dst_port):
                     if response:
                         response = response[0]
                         ack_response = response[TCP]
-                        print("Ack First test ACK received:")
+                        print("Ack First: test ACK received:")
                         ack_response.show2()
                         hexdump(ack_response)
+
+                        send_ack = TCP(sport=src_port, dport=dst_port, flags="A", seq=ack_response.ack, ack=ack_response.seq + len(ack_response.payload))
+                        send(ip/send_ack)
+                        
+                        print("Ack first: ACK sent: ")
+                        send_ack.show2()
+                        hexdump(send_ack)
                         
                     
 def data_first_test(dst_ip, dst_port):
@@ -190,7 +197,7 @@ def data_first_test(dst_ip, dst_port):
             syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
-            print("Data First SYN sent:")
+            print("Data First: SYN sent:")
             syn_packet.show2()
             hexdump(syn_packet)
         
@@ -198,13 +205,13 @@ def data_first_test(dst_ip, dst_port):
             
             if synack and TCP in synack:
                 if (synack[TCP].flags == "SA"):
-                    print("Data First SYN-ACK received:")
+                    print("Data First SYN-ACK: received:")
                     synack.show2()
                     hexdump(synack)
 
                     ack = TCP(sport=src_port, dport=dst_port, flags="A", seq=synack[TCP].ack, ack=synack[TCP].seq+1)
                     send(ip/ack)
-                    print("Data First ACK sent, TCP connection established: ")
+                    print("Data First: ACK sent, TCP connection established: ")
                     ack.show2()
                     hexdump(ack)
                     
@@ -218,13 +225,13 @@ def data_first_test(dst_ip, dst_port):
                     packet1 = ip/tcp_data1
                     send(packet1)
                     
-                    print("Data First test packet1 sent: ")
+                    print("Data First: test packet1 sent: ")
                     tcp_data1.show2()
                     hexdump(tcp_data1)
                     
-                    packet1_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=ack_callback)
+                    packet1_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=2, lfilter=ack_callback)
                     
-                    print("Data Fiest ACK for packet1 received: ")
+                    print("Data First: ACK for packet1 received: ")
                     for pkt in packet1_ack:
                         pkt[TCP].show2()
                         hexdump(pkt[TCP])
@@ -236,13 +243,13 @@ def data_first_test(dst_ip, dst_port):
                     packet2 = ip/tcp_data2
                     send(packet2)
                     
-                    print("Data First test packet2 sent: ")
+                    print("Data First: test packet2 sent: ")
                     tcp_data2.show2()
                     hexdump(tcp_data2)
                     
-                    packet2_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=10, lfilter=ack_callback)
+                    packet2_ack = sniff(filter=f"tcp and src host {dst_ip} and dst port {src_port}", count=1, timeout=2, lfilter=ack_callback)
                     
-                    print("Data First ACK for packet2 received: ")
+                    print("Data First: ACK for packet2 received: ")
                     for pkt in packet2_ack:
                         pkt[TCP].show2()
                         hexdump(pkt[TCP])
@@ -257,7 +264,7 @@ def retransmission_test(dst_ip, dst_port):
             syn = create_syn_packet(src_port, dst_port, isn, [MSS_option])
             syn_packet = (ip/syn)
             
-            print("Data First SYN sent:")
+            print("Retran: SYN sent:")
             syn_packet.show2()
             hexdump(syn_packet)
         
@@ -265,13 +272,13 @@ def retransmission_test(dst_ip, dst_port):
             
             if synack and TCP in synack:
                 if (synack[TCP].flags == "SA"):
-                    print("Retransmission SYN-ACK received:")
+                    print("Retran: SYN-ACK received:")
                     synack.show2()
                     hexdump(synack)
 
                     ack = TCP(sport=src_port, dport=dst_port, flags="A", seq=synack[TCP].ack, ack=synack[TCP].seq+1)
                     send(ip/ack)
-                    print("Retransmission ACK sent, TCP connection established: ")
+                    print("Retran: ACK sent, TCP connection established: ")
                     ack.show2()
                     hexdump(ack)
                     
@@ -293,9 +300,9 @@ def retransmission_test(dst_ip, dst_port):
                     tcp_packet2.show2()
                     hexdump(tcp_packet2)
 
-                    ack1 = sniff(filter=f"tcp and host {dst_ip} and port {dst_port}", count=2, lfilter=ack_callback)
+                    ack1 = sniff(filter=f"tcp and host {dst_ip} and port {dst_port}", count=2, timeout=2, lfilter=ack_callback)
                     for pkt in ack1:
-                        print(f"Retran test: ACK received: SEQ={pkt[TCP].seq}, ACK={pkt[TCP].ack}")
+                        print(f"Retran: ACK received: SEQ={pkt[TCP].seq}, ACK={pkt[TCP].ack}")
                         pkt[TCP].show2()
                         hexdump(pkt[TCP])
                     
@@ -339,26 +346,28 @@ dst_ports = [80, 443, 49312]
 isn = 724001
 synack_isn = 17581102
 
+hole_size = 500
+
 logs_folder = "logs/tcp/"
 
 for dst_port in dst_ports:
     print(f"Port {dst_port} starts")
-    for name, options in p_options_list:
-        print(f"P {dst_port}, {name}, 3whs")
-        three_whs(destination_ip, dst_port, name, options)
-#         print(f"P {dst_port}, {name}, 3whs - plus")
-#         three_whs_plus(destination_ip, dst_port, name, options)
-#         print(f"P {dst_port}, {name}, data directly")
-#         data_directly(destination_ip, dst_port, name, options)
+    # for name, options in p_options_list:
+        # print(f"P {dst_port}, {name}, 3whs\n")
+        # three_whs(destination_ip, dst_port, name, options)
+        # print(f"P {dst_port}, {name}, 3whs - plus\n")
+        # three_whs_plus(destination_ip, dst_port, name, options)
+        # print(f"P {dst_port}, {name}, data directly\n")
+        # data_directly(destination_ip, dst_port, name, options)
         
-#     print(f"P {dst_port}, data first")
-#     data_first_test(destination_ip, dst_port)
+    # print(f"P {dst_port}, data first")
+    # data_first_test(destination_ip, dst_port)
     
-#     print(f"P {dst_port}, ack first")
-#     ack_first_test(destination_ip, dst_port)
+    # print(f"P {dst_port}, ack first\n")
+    # ack_first_test(destination_ip, dst_port)
     
-#     print(f"P {dst_port}, retransmission")
-#     retransmission_test(destination_ip, dst_port)
+    print(f"P {dst_port}, retransmission")
+    retransmission_test(destination_ip, dst_port)
         
 
 # three_whs(destination_ip, destination_port, "experiment", experiment_option)

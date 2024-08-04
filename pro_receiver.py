@@ -10,14 +10,14 @@ log_folder = "logs/tcp/"
 def handle_packet(packet):
     dst_port = packet[TCP].dport
     log_path = f"{log_folder}tcp_receiver_{dst_port}_log.txt"
-    with open(log_path, "w") as log_file:
+    with open(log_path, "a") as log_file:
         with contextlib.redirect_stdout(log_file):
             if TCP in packet:
                 print(f"Flag: {packet[TCP].flags}\n")
                 packet.show2()
                 hexdump(packet)
                 if packet[TCP].flags == "S":
-                    print("SYN packet received")
+                    print("SYN packet received above")
                     if packet[TCP].seq != sender_isn:
                         print(f"Received sequence number ({packet[TCP].seq}) does not match expected ({sender_isn})")
                     ip = IP(src=packet[IP].dst, dst = packet[IP].src)
@@ -30,10 +30,10 @@ def handle_packet(packet):
                     hexdump(syn_ack_packet)
                     
                 elif packet[TCP].flags == "A":
-                    print(f"ACK received:")
+                    print(f"ACK received abpve")
                     
                 elif packet[TCP].flags == "PA":
-                    print(f"Received data packet")
+                    print(f"Received data packet above")
                     data = packet[Raw].load
                     
                     if "ack first test" in data.decode():
@@ -63,6 +63,9 @@ def handle_packet(packet):
                         print("Retran: duplicated ack sent:")
                         dup_ack.show2()
                         hexdump(dup_ack)
+                        
+                    elif "segment 2" in data.decode():
+                        print("Segment 2 received above, donot do anything")
                         
                     elif "new modified updated segment 2" in data.decode():
                         # ip = IP(src=packet[IP].dst, dst=packet[IP].src)
