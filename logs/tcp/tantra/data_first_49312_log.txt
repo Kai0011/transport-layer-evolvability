@@ -1,0 +1,164 @@
+Data First: SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7b4
+  src       = 192.168.0.73
+  dst       = 128.105.145.188
+  \options   \
+###[ TCP ]### 
+     sport     = 50055
+     dport     = 49312
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x186f
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 A7 B4 C0 A8 00 49  E..,....@......I
+0010  80 69 91 BC C3 87 C0 A0 00 0B 0C 21 00 00 00 00  .i.........!....
+0020  60 02 20 00 18 6F 00 00 02 04 02 00              `. ..o......
+Begin emission:
+Finished sending 1 packets.
+
+Received 4 packets, got 1 answers, remaining 0 packets
+Data First SYN-ACK: received:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 46
+  proto     = tcp
+  chksum    = 0xb9b4
+  src       = 128.105.145.188
+  dst       = 192.168.0.73
+  \options   \
+###[ TCP ]### 
+     sport     = 49312
+     dport     = 50055
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xd323
+     urgptr    = 0
+     options   = [('MSS', 512)]
+###[ Padding ]### 
+        load      = '\x00\x00'
+
+0000  45 00 00 2C 00 01 00 00 2E 06 B9 B4 80 69 91 BC  E..,.........i..
+0010  C0 A8 00 49 C0 A0 C3 87 01 0C 44 2E 00 0B 0C 22  ...I......D...."
+0020  60 12 20 00 D3 23 00 00 02 04 02 00 00 00        `. ..#........
+
+Sent 1 packets.
+Data First: ACK sent, TCP connection established: 
+###[ TCP ]### 
+  sport     = 50055
+  dport     = 49312
+  seq       = 724002
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = ''
+
+0000  C3 87 C0 A0 00 0B 0C 22 01 0C 44 2F 50 10 20 00  ......."..D/P. .
+0010  00 00 00 00                                      ....
+
+Sent 1 packets.
+Data First: test packet1 sent: 
+###[ TCP ]### 
+  sport     = 50055
+  dport     = 49312
+  seq       = 724002
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'data first test 1'
+
+0000  C3 87 C0 A0 00 0B 0C 22 01 0C 44 2F 50 18 20 00  ......."..D/P. .
+0010  00 00 00 00 64 61 74 61 20 66 69 72 73 74 20 74  ....data first t
+0020  65 73 74 20 31                                   est 1
+Data First: ACK for packet1 received: 
+###[ TCP ]### 
+  sport     = 49312
+  dport     = 50055
+  seq       = 17581103
+  ack       = 724019
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0xe71b
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  C0 A0 C3 87 01 0C 44 2F 00 0B 0C 33 50 10 20 00  ......D/...3P. .
+0010  E7 1B 00 00 00 00 00 00 00 00                    ..........
+
+Sent 1 packets.
+Data First: test packet2 sent: 
+###[ TCP ]### 
+  sport     = 50055
+  dport     = 49312
+  seq       = 724501
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'data first test 2'
+
+0000  C3 87 C0 A0 00 0B 0E 15 01 0C 44 2F 50 18 20 00  ..........D/P. .
+0010  00 00 00 00 64 61 74 61 20 66 69 72 73 74 20 74  ....data first t
+0020  65 73 74 20 32                                   est 2
+Data First: ACK for packet2 received: 
+###[ TCP ]### 
+  sport     = 49312
+  dport     = 50055
+  seq       = 17581103
+  ack       = 724518
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0xe528
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  C0 A0 C3 87 01 0C 44 2F 00 0B 0E 26 50 10 20 00  ......D/...&P. .
+0010  E5 28 00 00 00 00 00 00 00 00                    .(........
