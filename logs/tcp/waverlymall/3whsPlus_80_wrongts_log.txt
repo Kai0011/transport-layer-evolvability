@@ -1,0 +1,110 @@
+3whs plus SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 60
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x29fe
+  src       = 10.5.52.147
+  dst       = 128.105.145.188
+  \options   \
+###[ TCP ]### 
+     sport     = 54980
+     dport     = http
+     seq       = 724001
+     ack       = 0
+     dataofs   = 10
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xffbb
+     urgptr    = 0
+     options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  45 00 00 3C 00 01 00 00 40 06 29 FE 0A 05 34 93  E..<....@.)...4.
+0010  80 69 91 BC D6 C4 00 50 00 0B 0C 21 00 00 00 00  .i.....P...!....
+0020  A0 02 20 00 FF BB 00 00 02 04 02 00 08 10 00 00  .. .............
+0030  00 00 00 00 00 00 00 00 00 00 00 00              ............
+Begin emission:
+Finished sending 1 packets.
+
+Received 5 packets, got 1 answers, remaining 0 packets
+3whs plus --- Received sequence number (1717625313) does not match expected (17581102)
+3whs plus SYN-ACK received:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 0
+  flags     = DF
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xea0e
+  src       = 128.105.145.188
+  dst       = 10.5.52.147
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 54980
+     seq       = 1717625313
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 14600
+     chksum    = 0xe2cc
+     urgptr    = 0
+     options   = [('MSS', 1460)]
+###[ Padding ]### 
+        load      = '\x00\x00'
+
+0000  45 00 00 2C 00 00 40 00 40 06 EA 0E 80 69 91 BC  E..,..@.@....i..
+0010  0A 05 34 93 00 50 D6 C4 66 60 E1 E1 00 0B 0C 22  ..4..P..f`....."
+0020  60 12 39 08 E2 CC 00 00 02 04 05 B4 00 00        `.9...........
+
+Sent 1 packets.
+3whs plus ACK sent, TCP connection established:
+###[ TCP ]### 
+  sport     = 54980
+  dport     = http
+  seq       = 724002
+  ack       = 1717625314
+  dataofs   = 10
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  D6 C4 00 50 00 0B 0C 22 66 60 E1 E2 A0 10 20 00  ...P..."f`.... .
+0010  00 00 00 00 02 04 02 00 08 10 00 00 00 00 00 00  ................
+0020  00 00 00 00 00 00 00 00                          ........
+
+Sent 1 packets.
+3whs plus Data sent.
+###[ TCP ]### 
+  sport     = 54980
+  dport     = http
+  seq       = 724002
+  ack       = 1717625314
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'Please echo the options sent'
+
+0000  D6 C4 00 50 00 0B 0C 22 66 60 E1 E2 50 18 20 00  ...P..."f`..P. .
+0010  00 00 00 00 50 6C 65 61 73 65 20 65 63 68 6F 20  ....Please echo 
+0020  74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65 6E 74  the options sent

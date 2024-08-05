@@ -1,0 +1,166 @@
+Retran: SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x2a0e
+  src       = 10.5.52.147
+  dst       = 128.105.145.188
+  \options   \
+###[ TCP ]### 
+     sport     = 59137
+     dport     = http
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x379f
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 2A 0E 0A 05 34 93  E..,....@.*...4.
+0010  80 69 91 BC E7 01 00 50 00 0B 0C 21 00 00 00 00  .i.....P...!....
+0020  60 02 20 00 37 9F 00 00 02 04 02 00              `. .7.......
+Begin emission:
+Finished sending 1 packets.
+
+Received 2 packets, got 1 answers, remaining 0 packets
+Retran: SYN-ACK received:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 0
+  flags     = DF
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xea0e
+  src       = 128.105.145.188
+  dst       = 10.5.52.147
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 59137
+     seq       = 2422202978
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 14600
+     chksum    = 0xa80f
+     urgptr    = 0
+     options   = [('MSS', 1460)]
+###[ Padding ]### 
+        load      = '\x00\x00'
+
+0000  45 00 00 2C 00 00 40 00 40 06 EA 0E 80 69 91 BC  E..,..@.@....i..
+0010  0A 05 34 93 00 50 E7 01 90 5F E2 62 00 0B 0C 22  ..4..P..._.b..."
+0020  60 12 39 08 A8 0F 00 00 02 04 05 B4 00 00        `.9...........
+
+Sent 1 packets.
+Retran: ACK sent, TCP connection established: 
+###[ TCP ]### 
+  sport     = 59137
+  dport     = http
+  seq       = 724002
+  ack       = 2422202979
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = ''
+
+0000  E7 01 00 50 00 0B 0C 22 90 5F E2 63 50 10 20 00  ...P..."._.cP. .
+0010  00 00 00 00                                      ....
+
+Sent 1 packets.
+Retran: segment 1 sent:
+###[ TCP ]### 
+  sport     = 59137
+  dport     = http
+  seq       = 724002
+  ack       = 2422202979
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'segment 1'
+
+0000  E7 01 00 50 00 0B 0C 22 90 5F E2 63 50 18 20 00  ...P..."._.cP. .
+0010  00 00 00 00 73 65 67 6D 65 6E 74 20 31           ....segment 1
+
+Sent 1 packets.
+Retran: segment 2 sent:
+###[ TCP ]### 
+  sport     = 59137
+  dport     = http
+  seq       = 724011
+  ack       = 2422202979
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'segment 2'
+
+0000  E7 01 00 50 00 0B 0C 2B 90 5F E2 63 50 18 20 00  ...P...+._.cP. .
+0010  00 00 00 00 73 65 67 6D 65 6E 74 20 32           ....segment 2
+Retran: ACK received: SEQ=1043004794, ACK=724030
+###[ TCP ]### 
+  sport     = http
+  dport     = 54846
+  seq       = 1043004794
+  ack       = 724030
+  dataofs   = 5
+  reserved  = 0
+  flags     = FA
+  window    = 14600
+  chksum    = 0x791
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  00 50 D6 3E 3E 2A FD 7A 00 0B 0C 3E 50 11 39 08  .P.>>*.z...>P.9.
+0010  07 91 00 00 00 00 00 00 00 00                    ..........
+
+Sent 1 packets.
+Retran: new segment 2 sent: 
+###[ TCP ]### 
+  sport     = 59137
+  dport     = http
+  seq       = 724011
+  ack       = 2422202979
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'new modified updated segment 2'
+
+0000  E7 01 00 50 00 0B 0C 2B 90 5F E2 63 50 18 20 00  ...P...+._.cP. .
+0010  00 00 00 00 6E 65 77 20 6D 6F 64 69 66 69 65 64  ....new modified
+0020  20 75 70 64 61 74 65 64 20 73 65 67 6D 65 6E 74   updated segment
+0030  20 32                                             2
