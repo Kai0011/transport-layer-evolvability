@@ -67,7 +67,15 @@ def build_initial_packet(dst_ip, dst_port):
             initial_packet.show2()
             hexdump(initial_packet)
             
-            sniff(filter=f"udp and port {src_port}", prn=handle_packet, count=1, timeout=10)
+            response = sniff(filter=f"udp and src host {dst_ip}", count=1, timeout=5)
+            if response:
+                print("QUIC response received:")
+                response = response[0]
+                response.show2()
+                hexdump(response)
+            else:
+                print(f"No response for QUIC test in port{dst_port}")
+                
     
     
 parser = argparse.ArgumentParser(description="Process IP and port")
