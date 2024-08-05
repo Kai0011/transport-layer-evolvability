@@ -1,0 +1,2337 @@
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 60973
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x1a38
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC EE 2D 01 BB 00 0B 0C 21 00 00 00 00 60 02  ...-.....!....`.
+0030  20 00 1A 38 00 00 02 04 02 00 00 00               ..8........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 60973
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xd4ec
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB EE 2D 01 0C 44 2E 00 0B 0C 22  .I.....-..D...."
+0020  60 12 20 00 D4 EC 00 00 02 04 02 00              `. .........
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 60973
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xe8f5
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC EE 2D 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ...-....."..D/P.
+0030  20 00 E8 F5 00 00 00 00 00 00 00 00               ...........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 80
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x281a
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 60973
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 8
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0xf3cf
+        urgptr    = 0
+        options   = [('MSS', 512), (35, b'\x00\x00\x00'), ('EOL', None)]
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 50 00 01 00 00 2D 06 28 1A B9 49 9A 1E 80 69  .P....-.(..I...i
+0020  91 BC EE 2D 01 BB 00 0B 0C 22 01 0C 44 2F 80 18  ...-....."..D/..
+0030  20 00 F3 CF 00 00 02 04 02 00 23 05 00 00 00 00   .........#.....
+0040  00 00 50 6C 65 61 73 65 20 65 63 68 6F 20 74 68  ..Please echo th
+0050  65 20 6F 70 74 69 6F 6E 73 20 73 65 6E 74        e options sent
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 60973
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 8
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('MSS', 512), (35, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  01 BB EE 2D 01 0C 44 2F 00 0B 0C 3E 80 10 20 00  ...-..D/...>.. .
+0010  00 00 00 00 02 04 02 00 23 05 00 00 00 00 00 00  ........#.......
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 52
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2836
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58969
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 8
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0xdefe
+        urgptr    = 0
+        options   = [('MSS', 512), (35, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 34 00 01 00 00 2D 06 28 36 B9 49 9A 1E 80 69  .4....-.(6.I...i
+0020  91 BC E6 59 01 BB 00 0B 0C 21 00 00 00 00 80 02  ...Y.....!......
+0030  20 00 DE FE 00 00 02 04 02 00 23 05 00 00 00 00   .........#.....
+0040  00 00                                            ..
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 52
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x1536
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 58969
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 8
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x99b3
+     urgptr    = 0
+     options   = [('MSS', 512), (35, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  45 00 00 34 00 01 00 00 40 06 15 36 80 69 91 BC  E..4....@..6.i..
+0010  B9 49 9A 1E 01 BB E6 59 01 0C 44 2E 00 0B 0C 22  .I.....Y..D...."
+0020  80 12 20 00 99 B3 00 00 02 04 02 00 23 05 00 00  .. .........#...
+0030  00 00 00 00                                      ....
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 52
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2836
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58969
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 8
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0x99b4
+        urgptr    = 0
+        options   = [('MSS', 512), (35, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 34 00 01 00 00 2D 06 28 36 B9 49 9A 1E 80 69  .4....-.(6.I...i
+0020  91 BC E6 59 01 BB 00 0B 0C 22 01 0C 44 2F 80 10  ...Y....."..D/..
+0030  20 00 99 B4 00 00 02 04 02 00 23 05 00 00 00 00   .........#.....
+0040  00 00                                            ..
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58969
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x52b9
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC E6 59 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ...Y....."..D/P.
+0030  20 00 52 B9 00 00 50 6C 65 61 73 65 20 65 63 68   .R...Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 58969
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB E6 59 01 0C 44 2F 00 0B 0C 3E 50 10 20 00  ...Y..D/...>P. .
+0010  00 00 00 00                                      ....
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 57453
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x9de1
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC E0 6D 01 BB 00 0B 0C 21 00 00 00 00 50 18  ...m.....!....P.
+0030  20 00 9D E1 00 00 50 6C 65 61 73 65 20 65 63 68   .....Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 57453
+  seq       = 0
+  ack       = 724029
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB E0 6D 00 00 00 00 00 0B 0C 3D 50 10 20 00  ...m.......=P. .
+0010  00 00 00 00                                      ....
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 62674
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x1393
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC F4 D2 01 BB 00 0B 0C 21 00 00 00 00 60 02  .........!....`.
+0030  20 00 13 93 00 00 02 04 02 00 00 00               ...........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 62674
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xce47
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB F4 D2 01 0C 44 2E 00 0B 0C 22  .I........D...."
+0020  60 12 20 00 CE 47 00 00 02 04 02 00              `. ..G......
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 62674
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xe250
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC F4 D2 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ........."..D/P.
+0030  20 00 E2 50 00 00 00 00 00 00 00 00               ..P........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 80
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x281a
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 62674
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 8
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x132a
+        urgptr    = 0
+        options   = [('MSS', 512), (253, b'\x00\x00\x00'), ('EOL', None)]
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 50 00 01 00 00 2D 06 28 1A B9 49 9A 1E 80 69  .P....-.(..I...i
+0020  91 BC F4 D2 01 BB 00 0B 0C 22 01 0C 44 2F 80 18  ........."..D/..
+0030  20 00 13 2A 00 00 02 04 02 00 FD 05 00 00 00 00   ..*............
+0040  00 00 50 6C 65 61 73 65 20 65 63 68 6F 20 74 68  ..Please echo th
+0050  65 20 6F 70 74 69 6F 6E 73 20 73 65 6E 74        e options sent
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 62674
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 8
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('MSS', 512), (253, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  01 BB F4 D2 01 0C 44 2F 00 0B 0C 3E 80 10 20 00  ......D/...>.. .
+0010  00 00 00 00 02 04 02 00 FD 05 00 00 00 00 00 00  ................
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 52
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2836
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50450
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 8
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x2645
+        urgptr    = 0
+        options   = [('MSS', 512), (253, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 34 00 01 00 00 2D 06 28 36 B9 49 9A 1E 80 69  .4....-.(6.I...i
+0020  91 BC C5 12 01 BB 00 0B 0C 21 00 00 00 00 80 02  .........!......
+0030  20 00 26 45 00 00 02 04 02 00 FD 05 00 00 00 00   .&E............
+0040  00 00                                            ..
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 52
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x1536
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 50450
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 8
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xe0f9
+     urgptr    = 0
+     options   = [('MSS', 512), (253, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  45 00 00 34 00 01 00 00 40 06 15 36 80 69 91 BC  E..4....@..6.i..
+0010  B9 49 9A 1E 01 BB C5 12 01 0C 44 2E 00 0B 0C 22  .I........D...."
+0020  80 12 20 00 E0 F9 00 00 02 04 02 00 FD 05 00 00  .. .............
+0030  00 00 00 00                                      ....
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 52
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2836
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50450
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 8
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xe0fa
+        urgptr    = 0
+        options   = [('MSS', 512), (253, b'\x00\x00\x00'), ('EOL', None)]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 34 00 01 00 00 2D 06 28 36 B9 49 9A 1E 80 69  .4....-.(6.I...i
+0020  91 BC C5 12 01 BB 00 0B 0C 22 01 0C 44 2F 80 10  ........."..D/..
+0030  20 00 E0 FA 00 00 02 04 02 00 FD 05 00 00 00 00   ...............
+0040  00 00                                            ..
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50450
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x7400
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC C5 12 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ........."..D/P.
+0030  20 00 74 00 00 00 50 6C 65 61 73 65 20 65 63 68   .t...Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 50450
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB C5 12 01 0C 44 2F 00 0B 0C 3E 50 10 20 00  ......D/...>P. .
+0010  00 00 00 00                                      ....
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 54567
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0xa927
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC D5 27 01 BB 00 0B 0C 21 00 00 00 00 50 18  ...'.....!....P.
+0030  20 00 A9 27 00 00 50 6C 65 61 73 65 20 65 63 68   ..'..Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 54567
+  seq       = 0
+  ack       = 724029
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB D5 27 00 00 00 00 00 0B 0C 3D 50 10 20 00  ...'.......=P. .
+0010  00 00 00 00                                      ....
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 64806
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0xb3f
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC FD 26 01 BB 00 0B 0C 21 00 00 00 00 60 02  ...&.....!....`.
+0030  20 00 0B 3F 00 00 02 04 02 00 00 00               ..?........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 64806
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xc5f3
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB FD 26 01 0C 44 2E 00 0B 0C 22  .I.....&..D...."
+0020  60 12 20 00 C5 F3 00 00 02 04 02 00              `. .........
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 64806
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xd9fc
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC FD 26 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ...&....."..D/P.
+0030  20 00 D9 FC 00 00 00 00 00 00 00 00               ...........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 88
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2812
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 64806
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 10
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0xdfc3
+        urgptr    = 0
+        options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 58 00 01 00 00 2D 06 28 12 B9 49 9A 1E 80 69  .X....-.(..I...i
+0020  91 BC FD 26 01 BB 00 0B 0C 22 01 0C 44 2F A0 18  ...&....."..D/..
+0030  20 00 DF C3 00 00 02 04 02 00 08 10 00 00 00 00   ...............
+0040  00 00 00 00 00 00 00 00 00 00 50 6C 65 61 73 65  ..........Please
+0050  20 65 63 68 6F 20 74 68 65 20 6F 70 74 69 6F 6E   echo the option
+0060  73 20 73 65 6E 74                                s sent
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 64806
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 10
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  01 BB FD 26 01 0C 44 2F 00 0B 0C 3E A0 10 20 00  ...&..D/...>.. .
+0010  00 00 00 00 02 04 02 00 08 10 00 00 00 00 00 00  ................
+0020  00 00 00 00 00 00 00 00                          ........
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 60
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x282e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58640
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 10
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0xdb34
+        urgptr    = 0
+        options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 3C 00 01 00 00 2D 06 28 2E B9 49 9A 1E 80 69  .<....-.(..I...i
+0020  91 BC E5 10 01 BB 00 0B 0C 21 00 00 00 00 A0 02  .........!......
+0030  20 00 DB 34 00 00 02 04 02 00 08 10 00 00 00 00   ..4............
+0040  00 00 00 00 00 00 00 00 00 00                    ..........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 60
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x152e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 58640
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 10
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x95e9
+     urgptr    = 0
+     options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  45 00 00 3C 00 01 00 00 40 06 15 2E 80 69 91 BC  E..<....@....i..
+0010  B9 49 9A 1E 01 BB E5 10 01 0C 44 2E 00 0B 0C 22  .I........D...."
+0020  A0 12 20 00 95 E9 00 00 02 04 02 00 08 10 00 00  .. .............
+0030  00 00 00 00 00 00 00 00 00 00 00 00              ............
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 60
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x282e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58640
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 10
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0x95ea
+        urgptr    = 0
+        options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 3C 00 01 00 00 2D 06 28 2E B9 49 9A 1E 80 69  .<....-.(..I...i
+0020  91 BC E5 10 01 BB 00 0B 0C 22 01 0C 44 2F A0 10  ........."..D/..
+0030  20 00 95 EA 00 00 02 04 02 00 08 10 00 00 00 00   ...............
+0040  00 00 00 00 00 00 00 00 00 00                    ..........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58640
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x5402
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC E5 10 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ........."..D/P.
+0030  20 00 54 02 00 00 50 6C 65 61 73 65 20 65 63 68   .T...Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 58640
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB E5 10 01 0C 44 2F 00 0B 0C 3E 50 10 20 00  ......D/...>P. .
+0010  00 00 00 00                                      ....
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 60190
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x9330
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC EB 1E 01 BB 00 0B 0C 21 00 00 00 00 50 18  .........!....P.
+0030  20 00 93 30 00 00 50 6C 65 61 73 65 20 65 63 68   ..0..Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 60190
+  seq       = 0
+  ack       = 724029
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB EB 1E 00 00 00 00 00 0B 0C 3D 50 10 20 00  ...........=P. .
+0010  00 00 00 00                                      ....
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 49227
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x481a
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC C0 4B 01 BB 00 0B 0C 21 00 00 00 00 60 02  ...K.....!....`.
+0030  20 00 48 1A 00 00 02 04 02 00 00 00               .H.........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 49227
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x2cf
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB C0 4B 01 0C 44 2E 00 0B 0C 22  .I.....K..D...."
+0020  60 12 20 00 02 CF 00 00 02 04 02 00              `. .........
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 49227
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0x16d8
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC C0 4B 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ...K....."..D/P.
+0030  20 00 16 D8 00 00 00 00 00 00 00 00               ...........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 80
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x281a
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 49227
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 8
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x48bb
+        urgptr    = 0
+        options   = [('EOL', None)]
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 50 00 01 00 00 2D 06 28 1A B9 49 9A 1E 80 69  .P....-.(..I...i
+0020  91 BC C0 4B 01 BB 00 0B 0C 22 01 0C 44 2F 80 18  ...K....."..D/..
+0030  20 00 48 BB 00 00 00 00 00 00 00 00 00 00 00 00   .H.............
+0040  00 00 50 6C 65 61 73 65 20 65 63 68 6F 20 74 68  ..Please echo th
+0050  65 20 6F 70 74 69 6F 6E 73 20 73 65 6E 74        e options sent
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 49227
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 6
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('EOL', None)]
+
+0000  01 BB C0 4B 01 0C 44 2F 00 0B 0C 3E 60 10 20 00  ...K..D/...>`. .
+0010  00 00 00 00 00 00 00 00                          ........
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 52
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2836
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 54207
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 8
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x18a2
+        urgptr    = 0
+        options   = [('EOL', None)]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 34 00 01 00 00 2D 06 28 36 B9 49 9A 1E 80 69  .4....-.(6.I...i
+0020  91 BC D3 BF 01 BB 00 0B 0C 21 00 00 00 00 80 02  .........!......
+0030  20 00 18 A2 00 00 00 00 00 00 00 00 00 00 00 00   ...............
+0040  00 00                                            ..
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 54207
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xf35e
+     urgptr    = 0
+     options   = [('EOL', None)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB D3 BF 01 0C 44 2E 00 0B 0C 22  .I........D...."
+0020  60 12 20 00 F3 5E 00 00 00 00 00 00              `. ..^......
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 52
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2836
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 54207
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 8
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xd357
+        urgptr    = 0
+        options   = [('EOL', None)]
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 34 00 01 00 00 2D 06 28 36 B9 49 9A 1E 80 69  .4....-.(6.I...i
+0020  91 BC D3 BF 01 BB 00 0B 0C 22 01 0C 44 2F 80 10  ........."..D/..
+0030  20 00 D3 57 00 00 00 00 00 00 00 00 00 00 00 00   ..W............
+0040  00 00                                            ..
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 54207
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x6553
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC D3 BF 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ........."..D/P.
+0030  20 00 65 53 00 00 50 6C 65 61 73 65 20 65 63 68   .eS..Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 54207
+  seq       = 17581103
+  ack       = 724030
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB D3 BF 01 0C 44 2F 00 0B 0C 3E 50 10 20 00  ......D/...>P. .
+0010  00 00 00 00                                      ....
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 68
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2826
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 61888
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x8c8e
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'Please echo the options sent'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 44 00 01 00 00 2D 06 28 26 B9 49 9A 1E 80 69  .D....-.(&.I...i
+0020  91 BC F1 C0 01 BB 00 0B 0C 21 00 00 00 00 50 18  .........!....P.
+0030  20 00 8C 8E 00 00 50 6C 65 61 73 65 20 65 63 68   .....Please ech
+0040  6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20 73 65  o the options se
+0050  6E 74                                            nt
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 61888
+  seq       = 0
+  ack       = 724029
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB F1 C0 00 00 00 00 00 0B 0C 3D 50 10 20 00  ...........=P. .
+0010  00 00 00 00                                      ....
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50239
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x4426
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC C4 3F 01 BB 00 0B 0C 21 00 00 00 00 60 02  ...?.....!....`.
+0030  20 00 44 26 00 00 02 04 02 00 00 00               .D&........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 50239
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xfeda
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB C4 3F 01 0C 44 2E 00 0B 0C 22  .I.....?..D...."
+0020  60 12 20 00 FE DA 00 00 02 04 02 00              `. .........
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50239
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0x12e4
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC C4 3F 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ...?....."..D/P.
+0030  20 00 12 E4 00 00 00 00 00 00 00 00               ...........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 57
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2831
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50239
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x11b3
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'data first test 1'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 39 00 01 00 00 2D 06 28 31 B9 49 9A 1E 80 69  .9....-.(1.I...i
+0020  91 BC C4 3F 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ...?....."..D/P.
+0030  20 00 11 B3 00 00 64 61 74 61 20 66 69 72 73 74   .....data first
+0040  20 74 65 73 74 20 31                              test 1
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 50239
+  seq       = 17581103
+  ack       = 724019
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB C4 3F 01 0C 44 2F 00 0B 0C 33 50 10 20 00  ...?..D/...3P. .
+0010  00 00 00 00                                      ....
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 57
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2831
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 50239
+        dport     = https
+        seq       = 724501
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0xec0
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'data first test 2'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 39 00 01 00 00 2D 06 28 31 B9 49 9A 1E 80 69  .9....-.(1.I...i
+0020  91 BC C4 3F 01 BB 00 0B 0E 15 01 0C 44 2F 50 18  ...?........D/P.
+0030  20 00 0E C0 00 00 64 61 74 61 20 66 69 72 73 74   .....data first
+0040  20 74 65 73 74 20 32                              test 2
+Received data packet above
+
+Sent 1 packets.
+Sent ACK:
+###[ TCP ]### 
+  sport     = https
+  dport     = 50239
+  seq       = 17581103
+  ack       = 724518
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB C4 3F 01 0C 44 2F 00 0B 0E 26 50 10 20 00  ...?..D/...&P. .
+0010  00 00 00 00                                      ....
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58285
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x24b8
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC E3 AD 01 BB 00 0B 0C 21 00 00 00 00 60 02  .........!....`.
+0030  20 00 24 B8 00 00 02 04 02 00 00 00               .$.........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 58285
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xdf6c
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB E3 AD 01 0C 44 2E 00 0B 0C 22  .I........D...."
+0020  60 12 20 00 DF 6C 00 00 02 04 02 00              `. ..l......
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58285
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xf375
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC E3 AD 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ........."..D/P.
+0030  20 00 F3 75 00 00 00 00 00 00 00 00               ..u........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 54
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2834
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58285
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0xf204
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'ack first test'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 36 00 01 00 00 2D 06 28 34 B9 49 9A 1E 80 69  .6....-.(4.I...i
+0020  91 BC E3 AD 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ........."..D/P.
+0030  20 00 F2 04 00 00 61 63 6B 20 66 69 72 73 74 20   .....ack first 
+0040  74 65 73 74                                      test
+Received data packet above
+
+Sent 1 packets.
+Response for ack first test sent:
+###[ TCP ]### 
+  sport     = https
+  dport     = 58285
+  seq       = 17581103
+  ack       = 724516
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB E3 AD 01 0C 44 2F 00 0B 0E 24 50 18 20 00  ......D/...$P. .
+0010  00 00 00 00                                      ....
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 58285
+        dport     = https
+        seq       = 724516
+        ack       = 17581130
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xf158
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC E3 AD 01 BB 00 0B 0E 24 01 0C 44 4A 50 10  .........$..DJP.
+0030  20 00 F1 58 00 00 00 00 00 00 00 00               ..X........
+ACK received abpve
+Flag: S
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 44
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x283e
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 59616
+        dport     = https
+        seq       = 724001
+        ack       = 0
+        dataofs   = 6
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x1f85
+        urgptr    = 0
+        options   = [('MSS', 512)]
+###[ Padding ]### 
+           load      = '\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 2C 00 01 00 00 2D 06 28 3E B9 49 9A 1E 80 69  .,....-.(>.I...i
+0020  91 BC E8 E0 01 BB 00 0B 0C 21 00 00 00 00 60 02  .........!....`.
+0030  20 00 1F 85 00 00 02 04 02 00 00 00               ...........
+SYN packet received above
+
+Sent 1 packets.
+SYN-ACK sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x153e
+  src       = 128.105.145.188
+  dst       = 185.73.154.30
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 59616
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xda39
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 15 3E 80 69 91 BC  E..,....@..>.i..
+0010  B9 49 9A 1E 01 BB E8 E0 01 0C 44 2E 00 0B 0C 22  .I........D...."
+0020  60 12 20 00 DA 39 00 00 02 04 02 00              `. ..9......
+Flag: A
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2842
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 59616
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = A
+        window    = 8192
+        chksum    = 0xee42
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 28 00 01 00 00 2D 06 28 42 B9 49 9A 1E 80 69  .(....-.(B.I...i
+0020  91 BC E8 E0 01 BB 00 0B 0C 22 01 0C 44 2F 50 10  ........."..D/P.
+0030  20 00 EE 42 00 00 00 00 00 00 00 00               ..B........
+ACK received abpve
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 49
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2839
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 59616
+        dport     = https
+        seq       = 724002
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x8d0
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'segment 1'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 31 00 01 00 00 2D 06 28 39 B9 49 9A 1E 80 69  .1....-.(9.I...i
+0020  91 BC E8 E0 01 BB 00 0B 0C 22 01 0C 44 2F 50 18  ........."..D/P.
+0030  20 00 08 D0 00 00 73 65 67 6D 65 6E 74 20 31      .....segment 1
+Received data packet above
+
+Sent 1 packets.
+Retran: first ack sent:
+###[ TCP ]### 
+  sport     = https
+  dport     = 59616
+  seq       = 17581103
+  ack       = 724011
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB E8 E0 01 0C 44 2F 00 0B 0C 2B 50 10 20 00  ......D/...+P. .
+0010  00 00 00 00                                      ....
+
+Sent 1 packets.
+Retran: duplicated ack sent:
+###[ TCP ]### 
+  sport     = https
+  dport     = 59616
+  seq       = 17581103
+  ack       = 724011
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+
+0000  01 BB E8 E0 01 0C 44 2F 00 0B 0C 2B 50 10 20 00  ......D/...+P. .
+0010  00 00 00 00                                      ....
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 49
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2839
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 59616
+        dport     = https
+        seq       = 724011
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0x7c7
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'segment 2'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 31 00 01 00 00 2D 06 28 39 B9 49 9A 1E 80 69  .1....-.(9.I...i
+0020  91 BC E8 E0 01 BB 00 0B 0C 2B 01 0C 44 2F 50 18  .........+..D/P.
+0030  20 00 07 C7 00 00 73 65 67 6D 65 6E 74 20 32      .....segment 2
+Received data packet above
+Segment 2 received above, donot do anything
+Flag: PA
+
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:b8:1a
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 70
+     id        = 1
+     flags     = 
+     frag      = 0
+     ttl       = 45
+     proto     = tcp
+     chksum    = 0x2824
+     src       = 185.73.154.30
+     dst       = 128.105.145.188
+     \options   \
+###[ TCP ]### 
+        sport     = 59616
+        dport     = https
+        seq       = 724011
+        ack       = 17581103
+        dataofs   = 5
+        reserved  = 0
+        flags     = PA
+        window    = 8192
+        chksum    = 0xc84b
+        urgptr    = 0
+        options   = []
+###[ Raw ]### 
+           load      = 'segment 2ied updated segment 2'
+
+0000  D4 6D 50 CF B8 1A 74 26 AC EE F2 FF 08 00 45 00  .mP...t&......E.
+0010  00 46 00 01 00 00 2D 06 28 24 B9 49 9A 1E 80 69  .F....-.($.I...i
+0020  91 BC E8 E0 01 BB 00 0B 0C 2B 01 0C 44 2F 50 18  .........+..D/P.
+0030  20 00 C8 4B 00 00 73 65 67 6D 65 6E 74 20 32 69   ..K..segment 2i
+0040  65 64 20 75 70 64 61 74 65 64 20 73 65 67 6D 65  ed updated segme
+0050  6E 74 20 32                                      nt 2
+Received data packet above
+Segment 2 received above, donot do anything
