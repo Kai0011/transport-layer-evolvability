@@ -31,7 +31,7 @@ def three_whs(dst_ip, dst_port, name, p_options):
             syn_packet.show2()
             hexdump(syn_packet)
             
-            synack = sr1(syn_packet)
+            synack = sr1(syn_packet, timeout=3)
             
             if synack and TCP in synack:
                 received_seq = synack[TCP].seq
@@ -78,7 +78,7 @@ def three_whs_plus(dst_ip, dst_port, name, p_options):
             syn_packet.show2()
             hexdump(syn_packet)
             
-            synack = sr1(syn_packet)
+            synack = sr1(syn_packet, timeout=3)
             
             if synack and TCP in synack:
                 received_seq = synack[TCP].seq
@@ -151,7 +151,7 @@ def ack_first_test(dst_ip, dst_port):
             syn_packet.show2()
             hexdump(syn_packet)
         
-            synack = sr1(syn_packet)
+            synack = sr1(syn_packet, timeout=3)
             
             if synack and TCP in synack:
                 if (synack[TCP].flags == "SA"):
@@ -203,7 +203,7 @@ def data_first_test(dst_ip, dst_port):
             syn_packet.show2()
             hexdump(syn_packet)
         
-            synack = sr1(syn_packet)
+            synack = sr1(syn_packet, timeout=3)
             
             if synack and TCP in synack:
                 if (synack[TCP].flags == "SA"):
@@ -270,7 +270,7 @@ def retransmission_test(dst_ip, dst_port):
             syn_packet.show2()
             hexdump(syn_packet)
         
-            synack = sr1(syn_packet)
+            synack = sr1(syn_packet, timeout=3)
             
             if synack and TCP in synack:
                 if (synack[TCP].flags == "SA"):
