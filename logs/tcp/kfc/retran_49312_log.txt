@@ -1,0 +1,35 @@
+Retran: SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x688c
+  src       = 100.117.155.60
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 60134
+     dport     = 49312
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xb1e7
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 68 8C 64 75 9B 3C  E..,....@.h.du.<
+0010  80 69 92 24 EA E6 C0 A0 00 0B 0C 21 00 00 00 00  .i.$.......!....
+0020  60 02 20 00 B1 E7 00 00 02 04 02 00              `. .........
+Begin emission:
+Finished sending 1 packets.
+
+Received 54 packets, got 0 answers, remaining 1 packets

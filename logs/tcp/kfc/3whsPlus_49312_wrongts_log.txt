@@ -1,0 +1,36 @@
+3whs plus SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 60
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x687c
+  src       = 100.117.155.60
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 59910
+     dport     = 49312
+     seq       = 724001
+     ack       = 0
+     dataofs   = 10
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x6aa7
+     urgptr    = 0
+     options   = [('MSS', 512), ('Timestamp', b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')]
+
+0000  45 00 00 3C 00 01 00 00 40 06 68 7C 64 75 9B 3C  E..<....@.h|du.<
+0010  80 69 92 24 EA 06 C0 A0 00 0B 0C 21 00 00 00 00  .i.$.......!....
+0020  A0 02 20 00 6A A7 00 00 02 04 02 00 08 10 00 00  .. .j...........
+0030  00 00 00 00 00 00 00 00 00 00 00 00              ............
+Begin emission:
+Finished sending 1 packets.
+
+Received 72 packets, got 0 answers, remaining 1 packets
