@@ -1,0 +1,107 @@
+3whs SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x9b3e
+  src       = 192.168.12.87
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 60642
+     dport     = http
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xa2ee
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 9B 3E C0 A8 0C 57  E..,....@..>...W
+0010  80 69 92 24 EC E2 00 50 00 0B 0C 21 00 00 00 00  .i.$...P...!....
+0020  60 02 20 00 A2 EE 00 00 02 04 02 00              `. .........
+Begin emission:
+Finished sending 1 packets.
+
+Received 6 packets, got 1 answers, remaining 0 packets
+3whs --- Received sequence number (365972367) does not match expected (17581102)
+3whs SYN-ACK received:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 0
+  flags     = DF
+  frag      = 0
+  ttl       = 63
+  proto     = tcp
+  chksum    = 0x5c3f
+  src       = 128.105.146.36
+  dst       = 192.168.12.87
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 60642
+     seq       = 365972367
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 29200
+     chksum    = 0xebb9
+     urgptr    = 0
+     options   = [('MSS', 1460)]
+
+0000  45 00 00 2C 00 00 40 00 3F 06 5C 3F 80 69 92 24  E..,..@.?.\?.i.$
+0010  C0 A8 0C 57 00 50 EC E2 15 D0 4B 8F 00 0B 0C 22  ...W.P....K...."
+0020  60 12 72 10 EB B9 00 00 02 04 05 B4              `.r.........
+
+Sent 1 packets.
+3whs ACK sent, TCP connection established:
+###[ TCP ]### 
+  sport     = 60642
+  dport     = http
+  seq       = 724002
+  ack       = 365972368
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = ''
+
+0000  EC E2 00 50 00 0B 0C 22 15 D0 4B 90 50 10 20 00  ...P..."..K.P. .
+0010  00 00 00 00                                      ....
+
+Sent 1 packets.
+3whs Data sent.
+###[ TCP ]### 
+  sport     = 60642
+  dport     = http
+  seq       = 724002
+  ack       = 365972368
+  dataofs   = 8
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('EOL', None)]
+###[ Raw ]### 
+     load      = 'Please echo the options sent'
+
+0000  EC E2 00 50 00 0B 0C 22 15 D0 4B 90 80 18 20 00  ...P..."..K... .
+0010  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0020  50 6C 65 61 73 65 20 65 63 68 6F 20 74 68 65 20  Please echo the 
+0030  6F 70 74 69 6F 6E 73 20 73 65 6E 74              options sent
