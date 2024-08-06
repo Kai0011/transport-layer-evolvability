@@ -1,0 +1,107 @@
+Ack First: SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5594
+  src       = 10.252.7.174
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 61892
+     dport     = http
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x5862
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 55 94 0A FC 07 AE  E..,....@.U.....
+0010  80 69 92 24 F1 C4 00 50 00 0B 0C 21 00 00 00 00  .i.$...P...!....
+0020  60 02 20 00 58 62 00 00 02 04 02 00              `. .Xb......
+Begin emission:
+Finished sending 1 packets.
+
+Received 3 packets, got 1 answers, remaining 0 packets
+Ack first: SYN-ACK received:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 49
+  proto     = tcp
+  chksum    = 0x6494
+  src       = 128.105.146.36
+  dst       = 10.252.7.174
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 61892
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x1317
+     urgptr    = 0
+     options   = [('MSS', 512)]
+###[ Padding ]### 
+        load      = '\x00\x00'
+
+0000  45 00 00 2C 00 01 00 00 31 06 64 94 80 69 92 24  E..,....1.d..i.$
+0010  0A FC 07 AE 00 50 F1 C4 01 0C 44 2E 00 0B 0C 22  .....P....D...."
+0020  60 12 20 00 13 17 00 00 02 04 02 00 00 00        `. ...........
+
+Sent 1 packets.
+Ack first: ACK sent, TCP connection established.
+###[ TCP ]### 
+  sport     = 61892
+  dport     = http
+  seq       = 724002
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = ''
+
+0000  F1 C4 00 50 00 0B 0C 22 01 0C 44 2F 50 10 20 00  ...P..."..D/P. .
+0010  00 00 00 00                                      ....
+
+Sent 1 packets.
+Ack first: Data sent.
+###[ TCP ]### 
+  sport     = 61892
+  dport     = http
+  seq       = 724002
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'ack first test'
+
+0000  F1 C4 00 50 00 0B 0C 22 01 0C 44 2F 50 18 20 00  ...P..."..D/P. .
+0010  00 00 00 00 61 63 6B 20 66 69 72 73 74 20 74 65  ....ack first te
+0020  73 74                                            st
