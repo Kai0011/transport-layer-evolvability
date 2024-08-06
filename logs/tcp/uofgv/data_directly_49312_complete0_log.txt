@@ -1,0 +1,38 @@
+
+Sent 1 packets.
+Data directly: Data sent.
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 68
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x90d8
+  src       = 10.56.205.21
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 52315
+     dport     = 49312
+     seq       = 724001
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = PA
+     window    = 8192
+     chksum    = 0x6ec0
+     urgptr    = 0
+     options   = []
+###[ Raw ]### 
+        load      = 'Please echo the options sent'
+
+0000  45 00 00 44 00 01 00 00 40 06 90 D8 0A 38 CD 15  E..D....@....8..
+0010  80 69 92 24 CC 5B C0 A0 00 0B 0C 21 00 00 00 00  .i.$.[.....!....
+0020  50 18 20 00 6E C0 00 00 50 6C 65 61 73 65 20 65  P. .n...Please e
+0030  63 68 6F 20 74 68 65 20 6F 70 74 69 6F 6E 73 20  cho the options 
+0040  73 65 6E 74                                      sent
+No response for data direcelt test in Port: 49312
