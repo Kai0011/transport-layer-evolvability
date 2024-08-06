@@ -1,0 +1,58 @@
+3whs SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xc05
+  src       = 10.185.81.128
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 53212
+     dport     = http
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x30bb
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 0C 05 0A B9 51 80  E..,....@.....Q.
+0010  80 69 92 24 CF DC 00 50 00 0B 0C 21 00 00 00 00  .i.$...P...!....
+0020  60 02 20 00 30 BB 00 00 02 04 02 00              `. .0.......
+Begin emission:
+Finished sending 1 packets.
+
+Received 274 packets, got 1 answers, remaining 0 packets
+3whs --- Received sequence number (0) does not match expected (17581102)
+
+Sent 1 packets.
+3whs Data sent.
+###[ TCP ]### 
+  sport     = 53212
+  dport     = http
+  seq       = 724002
+  ack       = 1
+  dataofs   = 8
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = [('EOL', None)]
+###[ Raw ]### 
+     load      = 'Please echo the options sent'
+
+0000  CF DC 00 50 00 0B 0C 22 00 00 00 01 80 18 20 00  ...P..."...... .
+0010  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0020  50 6C 65 61 73 65 20 65 63 68 6F 20 74 68 65 20  Please echo the 
+0030  6F 70 74 69 6F 6E 73 20 73 65 6E 74              options sent
