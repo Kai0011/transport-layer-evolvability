@@ -30,7 +30,7 @@ def handle_packet(packet):
                     
                 elif packet[TCP].flags == "PA":
                     print(f"Received data packet above")
-                    if packet[Raw]:
+                    if packet.haslayer(Raw):
                         data = packet[Raw].load
                         if "ack first test" in data.decode():
                             payload = "response for ack first test"
