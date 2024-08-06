@@ -1,0 +1,178 @@
+Retran: SYN sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x2e7e
+  src       = 10.50.47.142
+  dst       = 128.105.146.36
+  \options   \
+###[ TCP ]### 
+     sport     = 55876
+     dport     = 49312
+     seq       = 724001
+     ack       = 0
+     dataofs   = 6
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x887b
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 40 06 2E 7E 0A 32 2F 8E  E..,....@..~.2/.
+0010  80 69 92 24 DA 44 C0 A0 00 0B 0C 21 00 00 00 00  .i.$.D.....!....
+0020  60 02 20 00 88 7B 00 00 02 04 02 00              `. ..{......
+Begin emission:
+Finished sending 1 packets.
+
+Received 2 packets, got 1 answers, remaining 0 packets
+Retran: SYN-ACK received:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 44
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 38
+  proto     = tcp
+  chksum    = 0x487e
+  src       = 128.105.146.36
+  dst       = 10.50.47.142
+  \options   \
+###[ TCP ]### 
+     sport     = 49312
+     dport     = 55876
+     seq       = 17581102
+     ack       = 724002
+     dataofs   = 6
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x4330
+     urgptr    = 0
+     options   = [('MSS', 512)]
+
+0000  45 00 00 2C 00 01 00 00 26 06 48 7E 80 69 92 24  E..,....&.H~.i.$
+0010  0A 32 2F 8E C0 A0 DA 44 01 0C 44 2E 00 0B 0C 22  .2/....D..D...."
+0020  60 12 20 00 43 30 00 00 02 04 02 00              `. .C0......
+
+Sent 1 packets.
+Retran: ACK sent, TCP connection established: 
+###[ TCP ]### 
+  sport     = 55876
+  dport     = 49312
+  seq       = 724002
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = ''
+
+0000  DA 44 C0 A0 00 0B 0C 22 01 0C 44 2F 50 10 20 00  .D....."..D/P. .
+0010  00 00 00 00                                      ....
+
+Sent 1 packets.
+Retran: segment 1 sent:
+###[ TCP ]### 
+  sport     = 55876
+  dport     = 49312
+  seq       = 724002
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'segment 1'
+
+0000  DA 44 C0 A0 00 0B 0C 22 01 0C 44 2F 50 18 20 00  .D....."..D/P. .
+0010  00 00 00 00 73 65 67 6D 65 6E 74 20 31           ....segment 1
+
+Sent 1 packets.
+Retran: segment 2 sent:
+###[ TCP ]### 
+  sport     = 55876
+  dport     = 49312
+  seq       = 724011
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'segment 2'
+
+0000  DA 44 C0 A0 00 0B 0C 2B 01 0C 44 2F 50 18 20 00  .D.....+..D/P. .
+0010  00 00 00 00 73 65 67 6D 65 6E 74 20 32           ....segment 2
+Retran: ACK received: SEQ=17581103, ACK=724011
+###[ TCP ]### 
+  sport     = 49312
+  dport     = 55876
+  seq       = 17581103
+  ack       = 724011
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x5730
+  urgptr    = 0
+  options   = ''
+
+0000  C0 A0 DA 44 01 0C 44 2F 00 0B 0C 2B 50 10 20 00  ...D..D/...+P. .
+0010  57 30 00 00                                      W0..
+Retran: ACK received: SEQ=17581103, ACK=724011
+###[ TCP ]### 
+  sport     = 49312
+  dport     = 55876
+  seq       = 17581103
+  ack       = 724011
+  dataofs   = 5
+  reserved  = 0
+  flags     = A
+  window    = 8192
+  chksum    = 0x5730
+  urgptr    = 0
+  options   = ''
+
+0000  C0 A0 DA 44 01 0C 44 2F 00 0B 0C 2B 50 10 20 00  ...D..D/...+P. .
+0010  57 30 00 00                                      W0..
+
+Sent 1 packets.
+Retran: new segment 2 sent: 
+###[ TCP ]### 
+  sport     = 55876
+  dport     = 49312
+  seq       = 724011
+  ack       = 17581103
+  dataofs   = 5
+  reserved  = 0
+  flags     = PA
+  window    = 8192
+  chksum    = 0x0
+  urgptr    = 0
+  options   = []
+###[ Raw ]### 
+     load      = 'new modified updated segment 2'
+
+0000  DA 44 C0 A0 00 0B 0C 2B 01 0C 44 2F 50 18 20 00  .D.....+..D/P. .
+0010  00 00 00 00 6E 65 77 20 6D 6F 64 69 66 69 65 64  ....new modified
+0020  20 75 70 64 61 74 65 64 20 73 65 67 6D 65 6E 74   updated segment
+0030  20 32                                             2
