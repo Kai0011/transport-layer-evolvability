@@ -30,52 +30,62 @@ def handle_packet(packet):
                     
                 elif packet[TCP].flags == "PA":
                     print(f"Received data packet above")
-                    data = packet[Raw].load
-                    
-                    if "ack first test" in data.decode():
-                        payload = "response for ack first test"
-                        ip = IP(src=packet[IP].dst, dst=packet[IP].src)
-                        tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="PA", seq=isn+1, ack=packet[TCP].seq + len(packet[TCP].payload) + hole_size)
-                        ack_packet = ip/tcp_ack/payload
-                        send(ack_packet)
-                        
-                        print("Response for ack first test sent:")
-                        tcp_ack.show2()
-                        hexdump(tcp_ack)
-                    elif "segment 1" in data.decode():
-                        time.sleep(0.5)
-                        
-                        ip = IP(src=packet[IP].dst, dst=packet[IP].src)
-                        tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
-                        send(ip/tcp_ack)
-                        
-                        print("Retran: first ack sent:")
-                        tcp_ack.show2()
-                        hexdump(tcp_ack)
-                        
-                        time.sleep(1)
-                        
-                        dup_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
-                        send(ip/dup_ack) 
+                    if packet[Raw]:
+                        data = packet[Raw].load
+                        if "ack first test" in data.decode():
+                            payload = "response for ack first test"
+                            ip = IP(src=packet[IP].dst, dst=packet[IP].src)
+                            tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="PA", seq=isn+1, ack=packet[TCP].seq + len(packet[TCP].payload) + hole_size)
+                            ack_packet = ip/tcp_ack/payload
+                            send(ack_packet)
+                            
+                            print("Response for ack first test sent:")
+                            tcp_ack.show2()
+                            hexdump(tcp_ack)
+                        elif "segment 1" in data.decode():
+                            time.sleep(0.5)
+                            
+                            ip = IP(src=packet[IP].dst, dst=packet[IP].src)
+                            tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
+                            send(ip/tcp_ack)
+                            
+                            print("Retran: first ack sent:")
+                            tcp_ack.show2()
+                            hexdump(tcp_ack)
+                            
+                            time.sleep(1)
+                            
+                            dup_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='A', seq=packet[TCP].ack, ack=packet[TCP].seq + len(data))
+                            send(ip/dup_ack) 
 
-                        print("Retran: duplicated ack sent:")
-                        dup_ack.show2()
-                        hexdump(dup_ack)
-                        
-                    elif "new modified updated segment 2" in data.decode():
-                        # ip = IP(src=packet[IP].dst, dst=packet[IP].src)
-                        # tcp_echo = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='PA', seq=ack_num, ack=packet[TCP].seq + len(data))/data
-                        # send(ip/tcp_echo)
-                        
-                        # print("Retran: ack for the new segment 2 sent: ")
-                        # tcp_echo.show2()
-                        # hexdump(tcp_echo)
-                        print("Retran: new modified updated segment 2 received")
-                        
-                    elif "segment 2" in data.decode():
-                        print("Segment 2 received above, donot do anything")
-                        
+                            print("Retran: duplicated ack sent:")
+                            dup_ack.show2()
+                            hexdump(dup_ack)
+                            
+                        elif "new modified updated segment 2" in data.decode():
+                            # ip = IP(src=packet[IP].dst, dst=packet[IP].src)
+                            # tcp_echo = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags='PA', seq=ack_num, ack=packet[TCP].seq + len(data))/data
+                            # send(ip/tcp_echo)
+                            
+                            # print("Retran: ack for the new segment 2 sent: ")
+                            # tcp_echo.show2()
+                            # hexdump(tcp_echo)
+                            print("Retran: new modified updated segment 2 received")
+                            
+                        elif "segment 2" in data.decode():
+                            print("Segment 2 received above, donot do anything")
+                            
+                        else:
+                            ip = IP(src=packet[IP].dst, dst=packet[IP].src)
+                            tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="A", seq=packet[TCP].ack, ack=packet[TCP].seq + len(packet[TCP].payload), options=packet[TCP].options)
+                            ack_packet = ip/tcp_ack
+                            send(ack_packet)
+                            
+                            print(f"Sent ACK:")
+                            tcp_ack.show2()
+                            hexdump(tcp_ack)
                     else:
+                        print("Data packet receiver but Raw layer not found")
                         ip = IP(src=packet[IP].dst, dst=packet[IP].src)
                         tcp_ack = TCP(sport=packet[TCP].dport, dport=packet[TCP].sport, flags="A", seq=packet[TCP].ack, ack=packet[TCP].seq + len(packet[TCP].payload), options=packet[TCP].options)
                         ack_packet = ip/tcp_ack
