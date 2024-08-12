@@ -1,0 +1,78 @@
+
+RECEIVER: ALL PACKETS BLOCKED
+
+
+python UDPCase2.py 31.94.6.3 62000 128.105.145.177 80   
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x6f24
+  src       = 31.94.6.3
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 62000
+     dport     = 80
+     len       = 13085
+     chksum    = 0xa2cc
+
+PS C:\Users\korea\Testnew>  python UDPCase2.py 31.94.6.3 62000 128.105.145.177 443
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x6f24
+  src       = 31.94.6.3
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 62000
+     dport     = https
+     len       = 54257
+     chksum    = 0x8d
+
+PS C:\Users\korea\Testnew>  python UDPCase2.py 31.94.6.3 62000 128.105.145.177 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x6f24
+  src       = 31.94.6.3
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 62000
+     dport     = 50000
+     len       = 49387
+     chksum    = 0x51fd

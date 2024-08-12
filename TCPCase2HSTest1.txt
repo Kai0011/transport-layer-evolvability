@@ -1,0 +1,117 @@
+TCPCase2HS80
+
+SENDER:
+
+python Sendercase2.py 148.252.145.92  128.110.217.77 60000 80 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with data offset 0:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x268a
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = http
+     seq       = 1000
+     ack       = 0
+     dataofs   = 0
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x7135
+     urgptr    = 0
+     options   = ''
+
+RECEIVER: NO PACKETS
+
+
+TCPCASE2HS443:
+
+SENDER
+
+python Sendercase2.py 148.252.145.92  128.110.217.77 60000 443 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with data offset 0:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x268a
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = https
+     seq       = 1000
+     ack       = 0
+     dataofs   = 0
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x6fca
+     urgptr    = 0
+     options   = ''
+
+
+Receiver: No packets received
+
+
+TCPCase2HS50000:
+
+SENDER:
+python Sendercase2.py 148.252.145.92  128.110.217.77 60000 50000 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with data offset 0:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x268a
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = 50000
+     seq       = 1000
+     ack       = 0
+     dataofs   = 0
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xae34
+     urgptr    = 0
+     options   = ''
+
+
+RECEIVER:
+No packets

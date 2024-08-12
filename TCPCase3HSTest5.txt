@@ -1,0 +1,105 @@
+
+
+
+
+RECEIVER: All packets are blocked
+
+
+
+SENDER:
+
+python TCPCase3.py 94.119.64.11 128.105.145.227 80 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with source port 57767:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xf5cf
+  src       = 94.119.64.11
+  dst       = 128.105.145.227
+  \options   \
+###[ TCP ]###
+     sport     = 57767
+     dport     = http
+     seq       = 1000
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xf933
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew>  python TCPCase3.py 94.119.64.11 128.105.145.227 443 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with source port 33446:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xf5cf
+  src       = 94.119.64.11
+  dst       = 128.105.145.227
+  \options   \
+###[ TCP ]###
+     sport     = 33446
+     dport     = https
+     seq       = 1000
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x56ca
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew> python TCPCase3.py 94.119.64.11 128.105.145.227 50000 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with source port 5985:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xf5cf
+  src       = 94.119.64.11
+  dst       = 128.105.145.227
+  \options   \
+###[ TCP ]###
+     sport     = 5985
+     dport     = 50000
+     seq       = 1000
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x7a
+     urgptr    = 0
+     options   = ''

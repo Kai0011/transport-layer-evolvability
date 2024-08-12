@@ -1,0 +1,83 @@
+
+SENDER:
+
+UDPcase2.py [-h] src_ip src_port dst_ip dst_port
+UDPcase2.py: error: the following arguments are required: src_ip, src_port, dst_ip, dst_port
+PS C:\Users\korea\Testnew> python UDPcase2.py 148.252.145.92 60000 128.110.217.77 80   
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x268b
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ UDP ]###
+     sport     = 60000
+     dport     = 80
+     len       = 29840
+     chksum    = 0x2090
+
+PS C:\Users\korea\Testnew> python UDPcase2.py 148.252.145.92 60000 128.110.217.77 443   
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x268b
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ UDP ]###
+     sport     = 60000
+     dport     = https
+     len       = 21391
+     chksum    = 0x4026
+
+PS C:\Users\korea\Testnew> python UDPcase2.py 148.252.145.92 60000 128.110.217.77 50000 
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x268b
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ UDP ]###
+     sport     = 60000
+     dport     = 50000
+     len       = 38063
+     chksum    = 0x3d70
+
+
+RECEIVER: 
+No packets in any case

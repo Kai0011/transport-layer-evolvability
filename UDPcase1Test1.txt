@@ -1,0 +1,155 @@
+UDPCase1
+
+SENDER:
+
+python UDPcase1.py 148.252.145.92 128.110.217.77 80          
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x268b
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ UDP ]###
+     sport     = 9786
+     dport     = 80
+     len       = 8
+     chksum    = 0x593f
+
+PS C:\Users\korea\Testnew> python UDPcase1.py 148.252.145.92 128.110.217.77 443 
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x268b
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ UDP ]###
+     sport     = 30725
+     dport     = https
+     len       = 8
+     chksum    = 0x609
+
+PS C:\Users\korea\Testnew> python UDPcase1.py 148.252.145.92 128.110.217.77 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x268b
+  src       = 148.252.145.92
+  dst       = 128.110.217.77
+  \options   \
+###[ UDP ]###
+     sport     = 3924
+     dport     = 50000
+     len       = 8
+     chksum    = 0xad24
+
+
+
+
+Receiver: 
+
+
+shash02@receiver:~/Testnew$ sudo python3 UDPReceiver.py 148.252.145.92
+WARNING: No route found for IPv6 destination :: (no default route?). This affects only IPv6
+Sniffing packets from 148.252.145.92...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 0
+  Fragment Offset: 0
+  TTL: 43
+  Protocol: 17
+  Checksum: 15243
+  Source IP: 148.252.145.92
+  Destination IP: 128.110.217.77
+UDP Header:
+  Source Port: 17174
+  Destination Port: 80
+  Length: 8
+  Checksum: 15459
+^Cshash02@receiver:~/Testnew$ sudo python3 UDPReceiver.py 148.252.5.92
+WARNING: No route found for IPv6 destination :: (no default route?). This affects only IPv6
+Sniffing packets from 148.252.145.92...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 0
+  Fragment Offset: 0
+  TTL: 43
+  Protocol: 17
+  Checksum: 15243
+  Source IP: 148.252.145.92
+  Destination IP: 128.110.217.77
+UDP Header:
+  Source Port: 3915
+  Destination Port: 443
+  Length: 8
+  Checksum: 28355
+^Cshash02@receiver:~/Testnew$ sudo python3 UDPReceiver.py 148.252.145.92
+WARNING: No route found for IPv6 destination :: (no default route?). This affects only IPv6
+usage: UDPReceiver.py [-h] src_ip
+UDPReceiver.py: error: unrecognized arguments: 148.252.145.92
+shash02@receiver:~/Testnew$ sudo python3 UDPReceiver.py 148.252.145.92
+WARNING: No route found for IPv6 destination :: (no default route?). This affects only IPv6
+Sniffing packets from 148.252.145.92...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 0
+  Fragment Offset: 0
+  TTL: 43
+  Protocol: 17
+  Checksum: 15243
+  Source IP: 148.252.145.92
+  Destination IP: 128.110.217.77
+UDP Header:
+  Source Port: 28703
+  Destination Port: 50000
+  Length: 8
+  Checksum: 19545

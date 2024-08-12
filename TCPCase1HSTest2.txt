@@ -1,0 +1,877 @@
+TCPHS80
+
+SENDER:
+python TCPCase1.py 81.130.155.82 128.105.145.177 60000 80 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = http
+     seq       = 2497
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x9c81
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 2 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = http
+     seq       = 3914
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x96f8
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 3 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = http
+     seq       = 5107
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x924f
+     urgptr    = 0
+     options   = ''
+
+
+
+RECEIVER:
+sudo python3 Receivercase1HS.py 81.130.155.82
+Sniffing packets from 81.130.155.82...
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 43
+     proto     = tcp
+     chksum    = 0xbcaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = http
+        seq       = 2497
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x9c81
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 60000
+     seq       = 2000
+     ack       = 2498
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x94a0
+     urgptr    = 0
+     options   = []
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 43
+     proto     = tcp
+     chksum    = 0xbcaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = http
+        seq       = 3914
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x96f8
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 60000
+     seq       = 2000
+     ack       = 3915
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x8f17
+     urgptr    = 0
+     options   = []
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 43
+     proto     = tcp
+     chksum    = 0xbcaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = http
+        seq       = 5107
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x924f
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = http
+     dport     = 60000
+     seq       = 2000
+     ack       = 5108
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x8a6e
+     urgptr    = 0
+     options   = []
+
+
+
+TCPHS443
+SENDER:
+ython TCPCase1.py 81.130.155.82 128.105.145.177 60000 443 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = https
+     seq       = 2763
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x9a0c
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 2 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = https
+     seq       = 4414
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x9399
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 3 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = https
+     seq       = 5045
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x9122
+     urgptr    = 0
+     options   = ''
+
+
+RECEIVER:
+Testnew$ sudo python3 Receivercase1HS.py 81.130.155.82
+Sniffing packets from 81.130.155.82...
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 43
+     proto     = tcp
+     chksum    = 0xbcaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = https
+        seq       = 2763
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x9a0c
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 60000
+     seq       = 2000
+     ack       = 2764
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x922b
+     urgptr    = 0
+     options   = []
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 43
+     proto     = tcp
+     chksum    = 0xbcaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = https
+        seq       = 4414
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x9399
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 60000
+     seq       = 2000
+     ack       = 4415
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x8bb8
+     urgptr    = 0
+     options   = []
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 43
+     proto     = tcp
+     chksum    = 0xbcaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = https
+        seq       = 5045
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0x9122
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = https
+     dport     = 60000
+     seq       = 2000
+     ack       = 5046
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0x8941
+     urgptr    = 0
+     options   = []
+
+
+
+TCPHS50000
+
+SENDER:
+python TCPCase1.py 81.130.155.82 128.105.145.177 60000 50000 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = 50000
+     seq       = 4128
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xd321
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 2 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = 50000
+     seq       = 4917
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xd00c
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 3 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0xa7af
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ TCP ]###
+     sport     = 60000
+     dport     = 50000
+     seq       = 7724
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xc515
+     urgptr    = 0
+     options   = ''
+
+
+RECEIVER:
+Testnew$ sudo python3 Receivercase1HS.py 81.130.155.8282
+Sniffing packets from 81.130.155.82...
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 44
+     proto     = tcp
+     chksum    = 0xbbaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = 50000
+        seq       = 4128
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0xd321
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = 50000
+     dport     = 60000
+     seq       = 2000
+     ack       = 4129
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xcb40
+     urgptr    = 0
+     options   = []
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 44
+     proto     = tcp
+     chksum    = 0xbbaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = 50000
+        seq       = 4917
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0xd00c
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = 50000
+     dport     = 60000
+     seq       = 2000
+     ack       = 4918
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xc82b
+     urgptr    = 0
+     options   = []
+
+Packet received:
+###[ Ethernet ]### 
+  dst       = d4:6d:50:cf:9e:a4
+  src       = 74:26:ac:ee:f2:ff
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 40
+     id        = 54321
+     flags     = 
+     frag      = 0
+     ttl       = 44
+     proto     = tcp
+     chksum    = 0xbbaf
+     src       = 81.130.155.82
+     dst       = 128.105.145.177
+     \options   \
+###[ TCP ]### 
+        sport     = 60000
+        dport     = 50000
+        seq       = 7724
+        ack       = 0
+        dataofs   = 5
+        reserved  = 0
+        flags     = S
+        window    = 8192
+        chksum    = 0xc515
+        urgptr    = 0
+        options   = []
+###[ Padding ]### 
+           load      = '\x00\x00\x00\x00\x00\x00'
+
+.
+Sent 1 packets.
+Response packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 1
+  flags     = 
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x7be0
+  src       = 128.105.145.177
+  dst       = 81.130.155.82
+  \options   \
+###[ TCP ]### 
+     sport     = 50000
+     dport     = 60000
+     seq       = 2000
+     ack       = 7725
+     dataofs   = 5
+     reserved  = 0
+     flags     = SA
+     window    = 8192
+     chksum    = 0xbd34
+     urgptr    = 0
+     options   = []

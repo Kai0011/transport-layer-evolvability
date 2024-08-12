@@ -1,0 +1,82 @@
+RECEIVER:
+No packets
+
+
+SENDER:
+
+python UDPcase1.py 109.144.16.62 128.105.145.227 80
+WARNING: Wireshark is installed, but cannot read manuf !
+WARNING: Mac address to reach destination not found. Using broadcast.
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x1685
+  src       = 109.144.16.62
+  dst       = 128.105.145.227
+  \options   \
+###[ UDP ]###
+     sport     = 10699
+     dport     = 80
+     len       = 8
+     chksum    = 0x45a8
+
+PS C:\Users\korea\Testnew> python UDPcase1.py 109.144.16.62 128.105.145.227 443
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x1685
+  src       = 109.144.16.62
+  dst       = 128.105.145.227
+  \options   \
+###[ UDP ]###
+     sport     = 57964
+     dport     = https
+     len       = 8
+     chksum    = 0x8b9b
+
+
+PS C:\Users\korea\Testnew> python UDPcase1.py 109.144.16.62 128.105.145.227 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x1685
+  src       = 109.144.16.62
+  dst       = 128.105.145.227
+  \options   \
+###[ UDP ]###
+     sport     = 30155
+     dport     = 50000
+     len       = 8
+     chksum    = 0x36a7

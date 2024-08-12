@@ -1,0 +1,82 @@
+
+
+
+RECEIVER:
+No packets received
+
+
+SENDER:
+PS C:\Users\korea\Testnew> python UDPcase2.py 31.205.120.86 62000 128.105.145.251 80
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xfc17
+  src       = 31.205.120.86
+  dst       = 128.105.145.251
+  \options   \
+###[ UDP ]###
+     sport     = 62000
+     dport     = 80
+     len       = 61499
+     chksum    = 0x72a1
+
+PS C:\Users\korea\Testnew>  python UDPcase2.py 31.205.120.86 62000 128.105.145.251 443
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xfc17
+  src       = 31.205.120.86
+  dst       = 128.105.145.251
+  \options   \
+###[ UDP ]###
+     sport     = 62000
+     dport     = https
+     len       = 45916
+     chksum    = 0xae15
+
+PS C:\Users\korea\Testnew> python UDPcase2.py 31.205.120.86 62000 128.105.145.251 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xfc17
+  src       = 31.205.120.86
+  dst       = 128.105.145.251
+  \options   \
+###[ UDP ]###
+     sport     = 62000
+     dport     = 50000
+     len       = 7456
+     chksum    = 0x82bc

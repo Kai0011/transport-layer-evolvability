@@ -1,0 +1,95 @@
+PS C:\Users\korea\Testnew> python TCPCase3.py 78.141.20.223 128.105.145.227 80 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with source port 18595:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x30e6
+  src       = 78.141.20.223
+  dst       = 128.105.145.227
+  \options   \
+###[ TCP ]###
+     sport     = 18595
+     dport     = http
+     seq       = 1000
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xcd4e
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew> python TCPCase3.py 78.141.20.223 128.105.145.227 443 6 
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with source port 44442:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x30e6
+  src       = 78.141.20.223
+  dst       = 128.105.145.227
+  \options   \
+###[ TCP ]###
+     sport     = 44442
+     dport     = https
+     seq       = 1000
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x66ec
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew>  python TCPCase3.py 78.141.20.223 128.105.145.227 50000 6 
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with source port 39023:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x30e6
+  src       = 78.141.20.223
+  dst       = 128.105.145.227
+  \options   \
+###[ TCP ]###
+     sport     = 39023
+     dport     = 50000
+     seq       = 1000
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xba81
+     urgptr    = 0
+     options   = ''

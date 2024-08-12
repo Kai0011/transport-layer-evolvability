@@ -1,0 +1,101 @@
+RECEIVER:
+No packets received
+
+SENDER:
+
+
+PS C:\Users\korea\Testnew> python TCPCase2.py 192.41.114.230 128.105.145.251 58500 80 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with data offset 0:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x612a
+  src       = 192.41.114.230
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 58500
+     dport     = http
+     seq       = 1000
+     ack       = 0
+     dataofs   = 0
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xb1b1
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew> python TCPCase2.py 192.41.114.230 128.105.145.251 58500 443 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with data offset 0:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x612a
+  src       = 192.41.114.230
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 58500
+     dport     = https
+     seq       = 1000
+     ack       = 0
+     dataofs   = 0
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xb046
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew> python TCPCase2.py 192.41.114.230 128.105.145.251 58500 50000 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent with data offset 0:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x612a
+  src       = 192.41.114.230
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 58500
+     dport     = 50000
+     seq       = 1000
+     ack       = 0
+     dataofs   = 0
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0xeeb0
+     urgptr    = 0
+     options   = ''

@@ -1,0 +1,144 @@
+UDP80
+
+SENDER:
+
+PS C:\Users\korea\Testnew> python UDPcase1.py 82.132.233.192 128.105.145.251 80
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x57f6
+  src       = 82.132.233.192
+  dst       = 128.105.145.251
+  \options   \
+###[ UDP ]###
+     sport     = 17048
+     dport     = 80
+     len       = 8
+     chksum    = 0x6e4c
+
+
+
+RECEIVER:
+sudo python3 UDPReceiver.py  82.132.233.192
+Sniffing packets from 82.132.233.192...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 39
+  Protocol: 17
+  Checksum: 28918
+  Source IP: 82.132.233.192
+  Destination IP: 128.105.145.251
+UDP Header:
+  Source Port: 17048
+  Destination Port: 80
+  Length: 8
+  Checksum: 28236
+
+
+UDP443
+
+SENDER:
+PS C:\Users\korea\Testnew> python UDPcase1.py 82.132.233.192 128.105.145.251 443
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x57f6
+  src       = 82.132.233.192
+  dst       = 128.105.145.251
+  \options   \
+###[ UDP ]###
+     sport     = 41753
+     dport     = https
+     len       = 8
+     chksum    = 0xc60
+
+
+
+
+
+RECEIVER:
+No packets received
+
+
+UDP50000
+
+SENDER:
+
+PS C:\Users\korea\Testnew> python UDPcase1.py 82.132.233.192 128.105.145.251 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x57f6
+  src       = 82.132.233.192
+  dst       = 128.105.145.251
+  \options   \
+###[ UDP ]###
+     sport     = 15835
+     dport     = 50000
+     len       = 8
+     chksum    = 0xb008
+
+
+
+RECEIVER:
+sudo python3 UDPReceiver.py  82.132.233.192
+Sniffing packets from 82.132.233.192...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 39
+  Protocol: 17
+  Checksum: 28918
+  Source IP: 82.132.233.192
+  Destination IP: 128.105.145.251
+UDP Header:
+  Source Port: 15835
+  Destination Port: 50000
+  Length: 8
+  Checksum: 45064

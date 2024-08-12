@@ -1,0 +1,280 @@
+RECEIVER:
+NO packets received
+
+SENDER:
+
+PS C:\Users\korea\Testnew> python TCPCase1.py 167.98.155.199 128.105.145.251 61000 80 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = http
+     seq       = 4198
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x3b55
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 2 sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = http
+     seq       = 4181
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x3b66
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 3 sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = http
+     seq       = 6745
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x3162
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew> python TCPCase1.py 167.98.155.199 128.105.145.251 61000 443 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = https
+     seq       = 5261
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x35c3
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 2 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = https
+     seq       = 6828
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x2fa4
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 3 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = https
+     seq       = 7943
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x2b49
+     urgptr    = 0
+     options   = ''
+
+PS C:\Users\korea\Testnew> python TCPCase1.py 167.98.155.199 128.105.145.251 61000 50000 6
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet 1 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = 50000
+     seq       = 4915
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x7587
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 2 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = 50000
+     seq       = 4701
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x765d
+     urgptr    = 0
+     options   = ''
+
+.
+Sent 1 packets.
+Packet 3 sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 40
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = tcp
+  chksum    = 0x5110
+  src       = 167.98.155.199
+  dst       = 128.105.145.251
+  \options   \
+###[ TCP ]###
+     sport     = 61000
+     dport     = 50000
+     seq       = 5148
+     ack       = 0
+     dataofs   = 5
+     reserved  = 0
+     flags     = S
+     window    = 8192
+     chksum    = 0x749e
+     urgptr    = 0
+     options   = ''

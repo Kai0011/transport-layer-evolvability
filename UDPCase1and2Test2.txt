@@ -1,0 +1,294 @@
+SENDER:
+
+python UDPCase1.py 81.130.155.82 128.105.145.177 80
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]### 
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xa7b0
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 56909
+     dport     = 80
+     len       = 8
+     chksum    = 0x2251
+
+PS C:\Users\korea\Testnew> python UDPCase1.py 81.130.155.82 128.105.145.177 443
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xa7b0
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 48176
+     dport     = https
+     len       = 8
+     chksum    = 0x4303
+
+PS C:\Users\korea\Testnew> python UDPCase1.py 81.130.155.82 128.105.145.177 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xa7b0
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 17963
+     dport     = 50000
+     len       = 8
+     chksum    = 0xf772
+
+PS C:\Users\korea\Testnew> & C:/Users/korea/AppData/Local/Programs/Python/Python38/python.exe c:/Users/korea/Testnew/UDPcase2.py
+WARNING: Wireshark is installed, but cannot read manuf !
+usage: UDPcase2.py [-h] src_ip src_port dst_ip dst_port
+UDPcase2.py: error: the following arguments are required: src_ip, src_port, dst_ip, dst_port
+PS C:\Users\korea\Testnew> python UDPCase2.py 81.130.155.82 60000 128.105.145.177 80   
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xa7b0
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 60000
+     dport     = 80
+     len       = 8138
+     chksum    = 0xf67b
+
+PS C:\Users\korea\Testnew>  python UDPCase2.py 81.130.155.82 60000 128.105.145.177 443 
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xa7b0
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 60000
+     dport     = https
+     len       = 54137
+     chksum    = 0x4161
+
+PS C:\Users\korea\Testnew>  python UDPCase2.py 81.130.155.82 60000 128.105.145.177 50000
+WARNING: Wireshark is installed, but cannot read manuf !
+.
+Sent 1 packets.
+Packet sent:
+###[ IP ]###
+  version   = 4
+  ihl       = 5
+  tos       = 0x0
+  len       = 28
+  id        = 54321
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xa7b0
+  src       = 81.130.155.82
+  dst       = 128.105.145.177
+  \options   \
+###[ UDP ]###
+     sport     = 60000
+     dport     = 50000
+     len       = 49850
+     chksum    = 0x908a
+
+
+RECEIVER:
+shash02@node0:~/Testnew$ sudo python3  UDPReceiver.py 81.130.155.82 Sniffing packets from 81.130.155.82...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 43
+  Protocol: 17
+  Checksum: 48304
+  Source IP: 81.130.155.82
+  Destination IP: 128.105.145.177
+UDP Header:
+  Source Port: 56909
+  Destination Port: 80
+  Length: 8
+  Checksum: 8785
+
+
+shash02@node0:~/Testnew$ sudo python3  UDPReceiver.py 81.130.155.8282
+Sniffing packets from 81.130.155.82...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 43
+  Protocol: 17
+  Checksum: 48304
+  Source IP: 81.130.155.82
+  Destination IP: 128.105.145.177
+UDP Header:
+  Source Port: 48176
+  Destination Port: 443
+  Length: 8
+  Checksum: 17155
+
+
+shash02@node0:~/Testnew$ sudo python3  UDPReceiver.py 81.130.155.8282
+Sniffing packets from 81.130.155.82...
+^[[CPacket received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 44
+  Protocol: 17
+  Checksum: 48048
+  Source IP: 81.130.155.82
+  Destination IP: 128.105.145.177
+UDP Header:
+  Source Port: 17963
+  Destination Port: 50000
+  Length: 8
+  Checksum: 63346
+
+
+^Cshash02@node0:~/Testnew$ ^C
+shash02@node0:~/Testnew$ sudo python3  UDPReceiver.py 81.130.155.82
+Sniffing packets from 81.130.155.82...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 44
+  Protocol: 17
+  Checksum: 48048
+  Source IP: 81.130.155.82
+  Destination IP: 128.105.145.177
+UDP Header:
+  Source Port: 60000
+  Destination Port: 80
+  Length: 8138
+  Checksum: 63099
+
+
+shash02@node0:~/Testnew$ sudo python3  UDPReceiver.py 81.130.155.8282
+Sniffing packets from 81.130.155.82...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 43
+  Protocol: 17
+  Checksum: 48304
+  Source IP: 81.130.155.82
+  Destination IP: 128.105.145.177
+UDP Header:
+  Source Port: 60000
+  Destination Port: 443
+  Length: 54137
+  Checksum: 16737
+
+
+shash02@node0:~/Testnew$  sudo python3  UDPReceiver.py 81.130.155.8282
+Sniffing packets from 81.130.155.82...
+Packet received:
+IP Header:
+  Version: 4
+  IHL: 5
+  TOS: 0
+  Length: 28
+  ID: 54321
+  Flags: 
+  Fragment Offset: 0
+  TTL: 44
+  Protocol: 17
+  Checksum: 48048
+  Source IP: 81.130.155.82
+  Destination IP: 128.105.145.177
+UDP Header:
+  Source Port: 60000
+  Destination Port: 50000
+  Length: 49850
+  Checksum: 37002
